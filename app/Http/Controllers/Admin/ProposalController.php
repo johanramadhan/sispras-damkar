@@ -45,7 +45,10 @@ class ProposalController extends Controller
                       </button>
                       <div class="dropdown-menu">
                         <a class="dropdown-item" href="' .route('proposal.edit', $item->id). '">
-                          Sunting
+                          Edit
+                        </a>
+                        <a class="dropdown-item" href="' .route('dashboard-proposal-details', $item->id). '">
+                          Detail
                         </a>
                         <form action="'. route('proposal.destroy', $item->id) .'" method="POST">
                           '. method_field('delete') . csrf_field() .'

@@ -14,7 +14,7 @@
         <div class="dashboard-heading">
           <h2 class="dashboard-title">#{{ $transaction->code }}</h2>
           <p class="dashboard-subtitle">
-              Pengajuan Details
+            Detail Pengajuan
           </p>
         </div>
         <!-- Dashbord Content -->
@@ -28,11 +28,13 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-12 col-md-4">
-                      <img
-                        src="{{ Storage::url($transaction->galleries->first()->photos ?? '') }}"
-                        alt=""
-                        class="w-100 mb-3"
-                      />
+                      <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+                        <img
+                          src="{{ Storage::url($transaction->galleries->first()->photos ?? '') }}"
+                          alt=""
+                          class="w-100 mb-3"
+                        />
+                      </button>
                     </div>
                     <div class="col-12 col-md-8">
                       <div class="row">
@@ -62,10 +64,10 @@
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="product-title">
-                            Date of Transaction
+                            Kebutuhan Maksimum
                           </div>
                           <div class="product-subtitle">
-                            {{ $transaction->created_at }}
+                            {{$transaction->max_requirement }} {{$transaction->satuan }}
                           </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -78,18 +80,18 @@
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="product-title">
-                            Kebutuhan Maksimum
-                          </div>
-                          <div class="product-subtitle">
-                            {{$transaction->max_requirement }} {{$transaction->satuan }}
-                          </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                          <div class="product-title">
                             Jumlah Barang
                           </div>
                           <div class="product-subtitle">
                             {{$transaction->qty }} {{$transaction->satuan }}
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="product-title">
+                            Date of Transaction
+                          </div>
+                          <div class="product-subtitle">
+                            {{ $transaction->created_at }}
                           </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -182,9 +184,16 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-12 text-right">
+                          <a
+                            href="{{ route('proposal.index') }}"
+                            type="submit"
+                            class="btn btn-primary btn-md mt-4"
+                            >
+                              Kembali
+                          </a>
                           <button
                             type="submit"
-                            class="btn btn-success btn-lg mt-4"
+                            class="btn btn-success btn-md mt-4"
                             >
                               Save Now
                           </button>
@@ -200,6 +209,28 @@
     </div>
     </div>
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Video Pengajuan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          {!! $transaction->link !!}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @push('addon-script')
     <script src="/vendor/vue/vue.js"></script>

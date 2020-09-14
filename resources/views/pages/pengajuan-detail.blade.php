@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Sispras Detail Page
+    Halaman - Detail Pengajuan
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
                   <a href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="breadcrumb-item active">
-                  Detail Aset
+                  Detail Pengajuan
                 </li>
               </ol>
             </nav>
@@ -32,7 +32,7 @@
     </section>
 
     <!-- Gallery -->
-    <section class="damkar-gallery mb-4" id="gallery">
+    {{-- <section class="damkar-gallery mb-4" id="gallery">
       <div class="container">
         <div class="row">
           <div class="col-lg-8"
@@ -69,10 +69,10 @@
             </div>
           </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- Xzoom --}}
-    {{-- <section class="damkar-gallery" id="gallery">
+    <section class="damkar-gallery mb-4" id="gallery">
       <div class="container">
         <div class="row">
           <div class="col-lg-8" data-aos="zoom-in">
@@ -80,7 +80,7 @@
               @if ($item->galleries->count())
                   <img
                     src="{{ Storage::url($item->galleries->first()->photos) }}"
-                    class="xzoom w-100 main-image d-block"
+                    class="xzoom mw-100 main-image d-block" height="475px"
                     xoriginal="{{ Storage::url($item->galleries->first()->photos) }}"
                   />
                   @else 
@@ -99,7 +99,7 @@
                   <a href="{{ Storage::url($items->photos) }}" class="d-block">
                     <img
                       src="{{ Storage::url($items->photos) }}"
-                      class="xzoom-gallery w-100 products-thumbnail"
+                      class="xzoom-gallery w-100 thumbnail-image"  height="105px"
                       xpreview="{{ Storage::url($items->photos) }}"
                     />
                   </a>
@@ -109,7 +109,7 @@
           </div>
         </div>
       </div>
-    </section> --}}
+    </section>
 
     <!-- Damkar-detail -->
     <div class="damkar-details-container" data-aos="fade-up">
@@ -134,7 +134,7 @@
                     Add to Cart
                   </button> --}}
                   <a
-                    href="{{ route('home') }}"
+                    href="{{ route('pengajuans') }}"
                     class="btn btn-success px-4 text-white btn-block mb-3"
                   >
                     Back
@@ -240,7 +240,7 @@
 @endsection
 
 @push('addon-script')
-  {{-- <script src="/vendor/xzoom/xzoom.min.js"></script>
+  <script src="/vendor/xzoom/xzoom.min.js"></script>
   <script>
     $(document).ready(function () {
       $(".xzoom, .xzoom-gallery").xzoom({
@@ -250,9 +250,9 @@
         Xoffset: 20,
       });
     });
-  </script> --}}
+  </script>
 
-  <script src="/vendor/vue/vue.js"></script>
+  {{-- <script src="/vendor/vue/vue.js"></script>
   <script>
     var gallery = new Vue({
       el: "#gallery",
@@ -276,5 +276,5 @@
         },
       },
     });
-  </script> 
+  </script>  --}}
 @endpush

@@ -60,7 +60,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12" data-aos="fade-up">
-            <h5>Trend Categories</h5>
+            <h5>Kategori</h5>
           </div>
         </div>
         <div class="row">
@@ -100,7 +100,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12" data-aos="fade-up">
-            <h5>New Products</h5>
+            <h5>Sarana dan Prasarana</h5>
           </div>
         </div>
         <div class="row">
@@ -136,7 +136,7 @@
               <div class="col-12 text-center py-5" 
                    data-aos="fade-up"
                    data-aos-delay="{{ $incrementProduct+= 100 }}">
-                Tidak ada Produk
+                Tidak ada Gambar
               </div>
           @endforelse
         </div>

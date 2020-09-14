@@ -22,9 +22,6 @@
         <li class="nav-item">
           <a href="{{ route('categories') }}" class="nav-link">Kategori</a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Rewards</a>
-        </li>
         @guest
           {{-- <li class="nav-item">
             <a href="{{ route('register') }}" class="nav-link">Sign Up</a>
@@ -57,6 +54,7 @@
             </a>
             <div class="dropdown-menu">
               <a href="{{ route('home') }}" class="dropdown-item">Home</a>
+              <a href="{{ route('pengajuans') }}" class="dropdown-item">Pengajuan</a>
               <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
               {{-- <a href="{{ route('dashboard-settings-account') }}" class="dropdown-item"
                 >Settings</a
@@ -90,14 +88,27 @@
         <!-- Mobile Menu -->
         <ul class="navbar-nav d-block d-lg d-lg-none">
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              Hi {{ Auth::user()->name }}
+          <a href="{{ route('pengajuans') }}" class="nav-link">
+             Pengajuan
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link d-inline-block">
-              Cart
+            <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              Hi {{ Auth::user()->name }}
             </a>
+          </li>          
+          <li class="nav-item">
+            <div class="dropdown-divider"></div>
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"  class="btn btn-danger nav-link px-4 text-white">Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
           </li>
         </ul>
       @endauth

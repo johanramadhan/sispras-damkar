@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Sispras - Halaman Kategori
+    Sispras - Halaman Pengajuan
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
               class="col-6 col-md-3 col-lg-2"
               data-aos="fade-up"
               data-aos-delay="{{ $incrementCategory+= 100 }}">
-              <a href="{{ route('categories-detail', $category->slug) }}" class="component-categories d-block">
+              <a href="{{ route('pengajuans-detail', $category->slug) }}" class="component-categories d-block">
                 <div class="categories-image">
                   <img src="{{ Storage::url($category->photo) }}" alt="" class="w-100 {{ $incrementCategory+= 100 }}" />
                 </div>
@@ -31,9 +31,9 @@
             </div>
         @empty
             <div class="col-12 text-center py-5" 
-                  data-aos="fade-up"
-                  data-aos-delay="{{ $incrementCategory+= 100 }}">
-            Tidak ada Kategori
+              data-aos="fade-up"
+              data-aos-delay="{{ $incrementCategory+= 100 }}">
+              Tidak ada Kategori
             </div>
         @endforelse
         
@@ -43,28 +43,28 @@
   <!-- Akhir Categories -->
 
   <!-- Products -->
-  <section class="damkar-new-products">
+  <section class="damkar-new-products mt-4">
     <div class="container">
       <div class="row">
         <div class="col-12" data-aos="fade-up">
-          <h5>Semua Sarana dan Prasarana</h5>
+          <h5>Semua Pengajuan</h5>
         </div>
       </div>
       <div class="row">
         @php $incrementCategory = 0 @endphp
-        @forelse ($products as $product)
+        @forelse ($proposals as $proposal)
             <div
               class="col-6 col-md-4 col-lg-3"
               data-aos="fade-up"
               data-aos-delay="{{ $incrementCategory+= 100 }}"
             >
-              <a href="{{ route('detail', $product->slug) }}" class="component-products d-block">
+              <a href="{{ route('pengajuan', $proposal->slug) }}" class="component-products d-block">
                 <div class="products-thumbnail">
                   <div
                     class="products-image"
                     style="
-                      @if($product->galleries->count())
-                        background-image: url('{{ Storage::url($product->galleries->first()->photos) }}')
+                      @if($proposal->galleries->count())
+                        background-image: url('{{ Storage::url($proposal->galleries->first()->photos) }}')
                       @else
                         background-color: #eee
                       @endif
@@ -72,10 +72,10 @@
                   ></div>
                 </div>
                 <div class="products-text">
-                  {{ $product->name }}
+                  {{ $proposal->name }}
                 </div>
                 <div class="products-price">
-                  {{ number_format($product->price) }}
+                  {{ number_format($proposal->price) }}
                 </div>
               </a>
             </div>
@@ -83,13 +83,13 @@
             <div class="col-12 text-center py-5" 
                   data-aos="fade-up"
                   data-aos-delay="{{ $incrementCategory+= 100 }}">
-            Tidak ada Gambar
+            Tidak ada Produk
             </div>
         @endforelse
       </div>
       <div class="row">
         <div class="col-12 mt-4">
-          {{ $products->links() }}
+          {{ $proposals->links() }}
         </div>
       </div>
     </div>

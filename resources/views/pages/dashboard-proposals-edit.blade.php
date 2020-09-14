@@ -39,7 +39,7 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label>Nama Barang Ini</label>
+                        <label>Nama Barang</label>
                         <input 
                           type="text"
                           name="name" 
@@ -132,19 +132,19 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label>Manfaat Barang</label>
-                        <textarea name="benefit" class="form-control" rows="3" required>{{ $item->benefit }}</textarea>
+                        <label>Link Video Dari Youtube</label> <small><i>( Masukkan link video barang jika ada )</i></small>
+                        <textarea name="link" class="form-control" rows="3">{{ $item->link }}</textarea>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label>Link Video Dari Youtube</label>
-                        <textarea name="link" class="form-control" rows="3" required>{{ $item->link }}</textarea>
+                        <label>Manfaat Barang</label>
+                        <textarea name="benefit" class="form-control" rows="3" required>{{ $item->benefit }}</textarea>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Deskription</label>
+                        <label>Deskription</label>  <small><i>( isikan spesifikasi barang dengan lengkap )</i></small>
                         <textarea name="description" id="editor">{!! $item->description !!}</textarea>
                       </div>
                     </div>

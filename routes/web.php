@@ -22,6 +22,7 @@ Route::get('/categories/{id}', 'CategoryController@detail')->name('categories-de
 
 Route::get('/details/{id}', 'DetailController@index')->name('detail');
 Route::post('/details/{id}', 'DetailController@add')->name('detail-add');
+Route::get('/details/pengajuan/{id}', 'DetailController@pengajuan')->name('pengajuan');
 
 Route::post('/checkout/callback', 'CheckoutController@callback')->name('midtrans-callback');
 
@@ -35,6 +36,9 @@ Route::group(['middleware' => ['auth']], function() {
 
   Route::get('/cart', 'CartController@index')->name('cart');
   Route::delete('/cart/{id}', 'CartController@delete')->name('cart-delete');
+
+  Route::get('/pengajuan', 'PengajuanController@index')->name('pengajuans');
+  Route::get('/pengajuan/{id}', 'PengajuanController@detail')->name('pengajuans-detail');
 
   Route::post('/checkout', 'CheckoutController@process')->name('checkout');
 

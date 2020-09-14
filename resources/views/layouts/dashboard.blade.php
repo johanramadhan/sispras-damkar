@@ -148,14 +148,21 @@
                 <!-- Mobile Menu -->
                 <ul class="navbar-nav d-block d-lg d-lg-none">
                   <li class="nav-item">
+                    <a href="{{ route('home') }}" class="nav-link">Home</a>
+                  </li>
+                  <li class="nav-item">
                     <a href="#" class="nav-link">
                       Hi. {{ Auth::user()->name }}
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link d-inline-block">
-                      Cart
+                    <a href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();" class="btn btn-danger nav-link px-4 text-white">Logout
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                   </li>
                 </ul>
               </div>

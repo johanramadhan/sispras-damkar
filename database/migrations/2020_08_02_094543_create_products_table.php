@@ -18,7 +18,14 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('users_id');
             $table->integer('categories_id');
+            $table->string('kondisi');
+            $table->string('status');
+            $table->Biginteger('qty');
             $table->Biginteger('price');
+            $table->Biginteger('total_price');
+            $table->string('satuan');
+            $table->longText('link')->nullable();
+            $table->longText('fungsi')->nullable();
             $table->longText('description');
             
             $table->softDeletes();

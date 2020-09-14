@@ -105,7 +105,7 @@
                                             </button>
                                             <div class="dropdown-menu">
                                               <a class="dropdown-item" href="{{ route('dashboard-proposal-edit', $proposal->id) }}">
-                                                Sunting
+                                                Edit
                                               </a>
                                               <form action="{{ route('dashboard-proposal-delete', $proposal->id) }}" method="POST">
                                                 {{method_field('delete')}} {{  csrf_field()}}

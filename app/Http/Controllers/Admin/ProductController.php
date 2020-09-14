@@ -33,6 +33,11 @@ class ProductController extends Controller
                 Rp'. ( number_format ($item->price) ) .'
                 ';
               })
+              ->addColumn('total_price', function($item) {
+                return '
+                Rp'. ( number_format ($item->total_price) ) .'
+                ';
+              })
               ->addColumn('action', function($item) {
                 return '
                   <div class="btn-group">

@@ -24,7 +24,7 @@
                   <div class="alert alert-danger">
                     <ul>
                       @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
+                        <li>{{ $error }}</li>
                       @endforeach
                     </ul>
                   </div>
@@ -47,7 +47,7 @@
                           <label>User Pengaju</label>
                           <select name="users_id" class="form-control">
                             @foreach ($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                              <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endforeach
                           </select>
                         </div>
@@ -57,11 +57,17 @@
                           <label>Kategori</label>
                           <select name="categories_id" class="form-control">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                              <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                           </select>
                         </div>
                       </div> 
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Jumlah Kebutuhan Maksimum</label>
+                          <input type="number" name="max_requirement" class="form-control" required>
+                        </div>
+                      </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Merek Barang</label>
@@ -72,12 +78,6 @@
                         <div class="form-group">
                           <label>Jumlah Barang Yang Diajukan</label>
                           <input type="number" name="qty" id="qty" onkeyup="sum()" class="form-control" required>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label>Jumlah Kebutuhan Maksimum</label>
-                          <input type="number" name="max_requirement" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -128,14 +128,20 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Total Harga</label>
-                          <input type="number" name="total_price" id="total_price" class="form-control" readonly>
+                          <label>Link Video Dari Youtube</label> <small><i>( Masukkan link video barang jika ada )</i></small>
+                          <textarea type="text" name="link" class="form-control" rows="1"></textarea>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
+                          <label>Total Harga</label>
+                          <input type="number" name="total_price" id="total_price" class="form-control" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
                           <label>Manfaat Barang</label>
-                          <input type="text" name="benefit" class="form-control" required>
+                          <textarea type="text" name="benefit" class="form-control" rows="3" required></textarea>
                         </div>
                       </div>
                       <div class="col-md-12">

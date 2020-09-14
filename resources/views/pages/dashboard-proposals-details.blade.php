@@ -65,10 +65,10 @@
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="product-title">
-                            Tanggal Pengajuan
+                            Kebutuhan Maksimum
                           </div>
                           <div class="product-subtitle">
-                            {{ $item->created_at }}
+                            {{$item->max_requirement }} {{$item->satuan }}
                           </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -81,18 +81,18 @@
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="product-title">
-                            Kebutuhan Maksimum
+                            Jumlah Pengajuan
                           </div>
                           <div class="product-subtitle">
-                            {{$item->max_requirement }} {{$item->satuan }}
+                            {{$item->qty }} {{$item->satuan }}
                           </div>
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="product-title">
-                            Jumlah Barang
+                            Tanggal Pengajuan
                           </div>
                           <div class="product-subtitle">
-                            {{$item->qty }} {{$item->satuan }}
+                            {{ $item->created_at }}
                           </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="product-title">
-                            Status Barang
+                            Status Pengajuan
                           </div>
                           <div class="product-subtitle text-danger">
                             {{ $item->proposal_status }}
@@ -179,13 +179,11 @@
       </div>
       <div class="modal-body">
         <div class="embed-responsive embed-responsive-16by9">
-          {!! $item->benefit !!}
-          
+          {!! $item->link !!}
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

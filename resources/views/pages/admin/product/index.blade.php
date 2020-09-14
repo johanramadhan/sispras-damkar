@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Product
+    Aset
 @endsection
 
 @section('content')
@@ -12,9 +12,9 @@
   >
     <div class="container-fluid">
         <div class="dashboard-heading">
-          <h2 class="dashboard-title">Product</h2>
+          <h2 class="dashboard-title">Aset</h2>
           <p class="dashboard-subtitle">
-              List Products
+              List Aset
           </p>
         </div>
         <div class="dashboard-content">
@@ -23,7 +23,7 @@
               <div class="card">
                 <div class="card-body">
                   <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">
-                  + Product Baru
+                  + Aset Baru
                 </a>
                 <div class="table-responsive">
                   <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
@@ -33,7 +33,10 @@
                         <th>Nama Produk</th>
                         <th>Pemilik</th>
                         <th>Kategori</th>
-                        <th>Harga</th>
+                        <th>Jumlah</th>
+                        <th>Satuan</th>
+                        <th>Harga Satuan</th>
+                        <th>Total Harga</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -63,7 +66,10 @@
         { data: 'name', name: 'name' },
         { data: 'user.name', name: 'user.name' },
         { data: 'category.name', name: 'category.name' },
+        { data: 'qty', name: 'qty' },
+        { data: 'satuan', name: 'satuan' },
         { data: 'price', name: 'price' },
+        { data: 'total_price', name: 'total_price' },
         { 
           data: 'action', 
           name: 'action',

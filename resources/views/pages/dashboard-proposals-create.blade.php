@@ -126,7 +126,13 @@
                           <input type="number" class="form-control" readonly name="total_price" id="total_price"/>
                         </div>
                       </div>
-                      <div class="col-md-12">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Link Video Dari Youtube</label> <small><i>( Masukkan link video barang jika ada )</i></small>
+                          <textarea name="link" class="form-control" rows="3"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label>Manfaat Barang</label>
                           <textarea name="benefit" class="form-control" rows="3" required></textarea>
@@ -134,7 +140,7 @@
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label>Deskripsi Barang</label> <small><i>(isikan spesifikasi barang dengan lengkap)</i></small>
+                          <label>Deskripsi Barang</label> <small><i>( isikan spesifikasi barang dengan lengkap )</i></small>
                           <textarea name="description" id="editor" required></textarea>
                         </div>
                       </div>
@@ -185,5 +191,5 @@
               document.getElementById('total_price').value = result;
           }
       }
-  </script>
+    </script>
 @endpush

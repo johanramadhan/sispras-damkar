@@ -66,6 +66,12 @@
                     </div> 
                     <div class="col-md-6">
                       <div class="form-group">
+                        <label>Jumlah Kebutuhan Maksimum</label>
+                        <input type="number" name="max_requirement" class="form-control" value="{{ $item->max_requirement }}" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
                         <label>Merek Barang</label>
                         <input type="text" name="brand" class="form-control" value="{{ $item->brand }}" required>
                       </div>
@@ -74,12 +80,6 @@
                       <div class="form-group">
                         <label>Jumlah Barang Yang Diajukan</label>
                         <input type="number" name="qty" id="qty" onkeyup="sum()" class="form-control" value="{{ $item->qty }}" required>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Jumlah Kebutuhan Maksimum</label>
-                        <input type="number" name="max_requirement" class="form-control" value="{{ $item->max_requirement }}" required>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -131,14 +131,20 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label>Total Harga</label>
-                        <input type="number" name="total_price" id="total_price" class="form-control" value="{{ $item->total_price }}" readonly>
+                        <label>Link Video Dari Youtube</label> <small><i>( Masukkan link video barang jika ada )</i></small>
+                        <textarea type="text" name="link" class="form-control" rows="1">{{ $item->link }}</textarea>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
+                        <label>Total Harga</label>
+                        <input type="number" name="total_price" id="total_price" class="form-control" value="{{ $item->total_price }}" readonly>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
                         <label>Manfaat Barang</label>
-                        <input type="text" name="benefit" class="form-control" value="{{ $item->benefit }}" required>
+                        <textarea type="text" name="benefit" class="form-control" rows="3" required>{{ $item->benefit }}</textarea>
                       </div>
                     </div>
                     <div class="col-md-12">

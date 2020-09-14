@@ -28,7 +28,7 @@ class CreateProposalsTable extends Migration
             $table->longText('benefit')->nullable();
             $table->longText('description')->nullable();
             $table->string('proposal_status');
-            $table->longText('note');
+            $table->longText('note')->nullable();
             $table->longText('link')->nullable();
             $table->string('slug');
             
