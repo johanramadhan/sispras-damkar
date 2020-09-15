@@ -31,6 +31,7 @@
                       <tr>
                         <th>ID</th>
                         <th>Nama</th>
+                        <th>Foto</th>
                         <th>Email</th>
                         <th>Roles</th>
                         <th>Aksi</th>
@@ -60,6 +61,7 @@
       columns: [
         { data: 'id', name: 'id' },
         { data: 'name', name: 'name' },
+        { data: 'photo', name: 'photo' },
         { data: 'email', name: 'email' },
         { data: 'roles', name: 'roles' },
         { 

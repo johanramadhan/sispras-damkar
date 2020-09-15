@@ -61,6 +61,12 @@
                           </select>
                         </div>
                       </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Foto</label>
+                          <input type="file" name="photo" class="form-control" required>
+                        </div>
+                      </div>
                       
                     </div>
                     <div class="row">

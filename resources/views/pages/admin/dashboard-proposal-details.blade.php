@@ -118,6 +118,14 @@
                             RP{{ number_format($transaction->total_price) }}
                           </div>
                         </div>
+                        <div class="col-12 col-md-12">
+                          <div class="product-title">
+                            Alasan
+                          </div>
+                          <div class="product-subtitle">
+                            {{ $transaction->note }}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

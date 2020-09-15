@@ -12,21 +12,21 @@
     <div class="container">
       <div class="row">
         <div class="col-12" data-aos="fade-up">
-          <h5>Semua Kategori</h5>
+          <h5>Semua Bidang</h5>
         </div>
       </div>
       <div class="row">
         @php $incrementCategory = 0 @endphp
-        @forelse ($categories as $category)
+        @forelse ($users as $user)
             <div
               class="col-6 col-md-3 col-lg-2"
               data-aos="fade-up"
               data-aos-delay="{{ $incrementCategory+= 100 }}">
-              <a href="{{ route('pengajuans-detail', $category->slug) }}" class="component-categories d-block">
-                <div class="categories-image">
-                  <img src="{{ Storage::url($category->photo) }}" alt="" class="w-100 {{ $incrementCategory+= 100 }}" />
+              <a href="{{ route('pengajuans-detail', $user->slug) }}" class="component-categories d-block w-100 h-100">
+                <div class="categories-image text-center">
+                  <img src="{{ Storage::url($user->photo) }}" alt="" class="w-50  {{ $incrementCategory+= 100 }}" />
                 </div>
-                <p class="categories-text">{{ $category->name }}</p>
+                <p class="categories-text">{{ $user->name }}</p>
               </a>
             </div>
         @empty

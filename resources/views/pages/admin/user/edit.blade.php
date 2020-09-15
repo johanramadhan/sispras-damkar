@@ -64,6 +64,12 @@
                           </select>
                         </div>
                       </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Foto</label>
+                          <input type="file" name="photo" class="form-control">
+                        </div>
+                      </div>
                     </div>
                     <div class="row">
                       <div class="col text-right">

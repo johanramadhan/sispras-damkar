@@ -23,7 +23,7 @@
         <!-- Sidebar -->
         <div class="border-right" id="sidebar-wrapper">
           <div class="sidebar-heading text-center">
-            <img src="/images/logo-sidebar.png" alt="" class="my-4" />
+            <img src="/images/firefighter.png"  class="my-4 w-50" />
           </div>
           <div class="list-group list-group-flush">
             <a
