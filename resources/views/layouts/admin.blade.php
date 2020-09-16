@@ -88,13 +88,19 @@
               My Account
             </a> --}}
             <a
-              href="/index.html"
+              href="{{ route('logout') }}"
+              onclick="event.preventDefault(); 
+              document.getElementById('logout-form').submit();"
               class="list-group-item list-group-item-action"
-             >
+            >
               Sign Out
             </a>
           </div>
         </div>
+
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -141,7 +147,7 @@
                       <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard 2</a>
                       <a href="/dashboard-account.html" class="dropdown-item">Settings</a>
                       <div class="dropdown-divider"></div>
-                      <a href="{{ route('home') }}" class="dropdown-item">Logout</a>
+                      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
                     </div>
                   </li>
                   <li class="nav-item">
