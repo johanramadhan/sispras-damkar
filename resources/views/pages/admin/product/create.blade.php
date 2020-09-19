@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Aset
+    Create - Aset
 @endsection
 
 @section('content')
@@ -114,14 +114,40 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Link Video Dari Youtube</label> <small><i>( Masukkan link video barang jika ada )</i></small>
-                          <textarea name="link" class="form-control" rows="1"></textarea>
+                         <label>Kondisi Aset</label>
+                         <select name="kondisi" class="form-control" required>
+                           <option value="Baik">Baik</option>
+                           <option value="Rusak Ringan">Rusak Ringan</option>
+                           <option value="Rusak Berat">Rusak Berat</option>
+                         </select>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Total Harga</label>
                           <input type="number" class="form-control" name="total_price" id="total_price" readonly/>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                         <label>Status Aset</label>
+                         <select name="status" class="form-control" required>
+                           <option value="Pembelian">Pembelian</option>
+                           <option value="Hibah">Hibah</option>
+                           <option value="dll">dll</option>
+                         </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Link Video Dari Youtube</label> <small><i>( Masukkan link video barang jika ada )</i></small>
+                          <textarea name="link" class="form-control" rows="1"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Fungsi Aset</label>
+                          <textarea name="fungsi" class="form-control" rows="2"></textarea>
                         </div>
                       </div>
                       <div class="col-md-12">

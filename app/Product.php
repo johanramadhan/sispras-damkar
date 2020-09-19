@@ -11,7 +11,7 @@ class Product extends Model
     use SoftDeletes;
 
     protected $fillable = [
-    'name', 'users_id', 'categories_id', 'qty', 'price', 'total_price', 'satuan', 'link', 'description', 'slug'
+    'name', 'users_id', 'categories_id', 'kondisi', 'status', 'qty', 'price', 'total_price', 'satuan', 'link', 'fungsi', 'description', 'slug'
     ];
 
     protected $hidden = [

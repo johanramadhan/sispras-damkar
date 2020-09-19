@@ -116,7 +116,7 @@
                   role="tab"
                   aria-controls="pills-profile"
                   aria-selected="false"
-                  >Data Barang</a
+                  >Data Aset</a
                 >
               </li>
             </ul>
@@ -158,14 +158,13 @@
                     </a>
                   @endforeach
                 </div>
-                
+
                 <div
                   class="tab-pane fade"
                   id="pills-profile"
                   role="tabpanel"
                   aria-labelledby="pills-profile-tab"
                   >
-
                   @foreach ($product_data as $product)
                     <a
                       href="{{ route('product.edit', $product->id) }}"
@@ -181,7 +180,7 @@
                           </div>
                           <div class="col-md-3">{{ $product->name }}</div>
                           <div class="col-md-3">{{ $product->user->name }}</div>
-                          <div class="col-md-2">{!! Str::limit($product->description, 20 ?? '') !!}</div>
+                          <div class="col-md-2">{{ str::limit($product->fungsi, 20 ?? '') }}</div>
                           <div class="col-md-2">Rp{{ number_format($product->price) }}</div>
                           <div class="col-md-1 d-none d-md-block">
                             <img
@@ -192,8 +191,7 @@
                         </div>
                       </div>
                     </a>
-                  @endforeach                  
-                
+                  @endforeach
                 </div>
               </div>
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Halaman - Detail Pengajuan
+    Detail Pengajuan
 @endsection
 
 @section('content')
@@ -84,7 +84,7 @@
                     xoriginal="{{ Storage::url($item->galleries->first()->photos) }}"
                   />
                   @else 
-                    background-color: #eee
+                    Tidak ada Gambar
               @endif
             </transition>
           </div>
@@ -117,10 +117,13 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8">
-              <h1>{{ $item->name }}</h1>
+              <h1>{{ $item->name }} {{ $item->brand }}</h1>
               <div class="owner">By : {{ $item->user->name }}</div>
               <div class="owner">Kategori : {{ $item->category->name }}</div>
-              <div class="price">Rp{{ number_format($item->price) }},00</div>
+              <div class="owner">Waktu Pengajuan : {{ $item->created_at }}</div>
+              <div class="owner">Status : {{ $item->proposal_status }}</div>
+              <div class="owner">Catatan : {{ $item->note }}</div>
+              <div class="price">Rp{{ number_format($item->total_price) }},00 <small><i>({{ $item->qty }} {{ $item->satuan }} x Rp{{ number_format($item->price) }})</i></small> </div>
             </div>
             
             <div class="col-lg-2" data-aos="zoom-in">
@@ -161,6 +164,12 @@
           <div class="row">
             <div class="col-12 col-lg-8">
               <p>Deskripsi Barang</p>
+              <small class="owner">
+                Kebutuhan Maksimum : {{ $item->max_requirement }} {{ $item->satuan }}
+              </small> <br>
+              <small>
+                Manfaat : {!! $item->benefit !!}
+              </small>
               <p>
                 {!! $item->description !!}
               </p>

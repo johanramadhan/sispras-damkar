@@ -80,7 +80,7 @@
                 <div class="col-12 text-center py-5" 
                   data-aos="fade-up"
                   data-aos-delay="{{ $incrementProduct+= 100 }}">
-                  Tidak ada Produk
+                  Tidak ada Aset
                 </div>
               @endforelse
 

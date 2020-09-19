@@ -72,10 +72,10 @@
                   ></div>
                 </div>
                 <div class="products-text">
-                  {{ $proposal->name }}
+                  {{ $proposal->name }} - {{ $proposal->brand }}
                 </div>
                 <div class="products-price">
-                  {{ number_format($proposal->price) }}
+                  {{ number_format($proposal->total_price) }} <small><i>({{ $proposal->qty }} {{ $proposal->satuan }} x {{ number_format($proposal->price) }})</i></small>
                 </div>
               </a>
             </div>
@@ -83,7 +83,7 @@
             <div class="col-12 text-center py-5" 
                   data-aos="fade-up"
                   data-aos-delay="{{ $incrementCategory+= 100 }}">
-            Tidak ada Produk
+            Tidak ada Pengajuan
             </div>
         @endforelse
       </div>

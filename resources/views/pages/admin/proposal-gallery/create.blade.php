@@ -12,9 +12,9 @@
   >
     <div class="container-fluid">
         <div class="dashboard-heading">
-          <h2 class="dashboard-title">Product Gallery</h2>
+          <h2 class="dashboard-title">Galleri Pengajuan</h2>
           <p class="dashboard-subtitle">
-              Create New Product Gallery
+              Unggah Foto Pengajuan
           </p>
         </div>
         <div class="dashboard-content">
@@ -39,7 +39,7 @@
                           <label>Pengajuan</label>
                           <select name="proposals_id" class="form-control">
                             @foreach ($proposals as $proposal)
-                                <option value="{{ $proposal->id }}">{{ $proposal->name }}</option>
+                                <option value="{{ $proposal->id }}">{{ $proposal->name }} - {{ $proposal->brand }}</option>
                             @endforeach
                           </select>
                         </div>
