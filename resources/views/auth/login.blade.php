@@ -1,5 +1,9 @@
 @extends('layouts.auth')
 
+@section('title')
+  Login - Sispras
+@endsection
+
 @section('content')
 <!-- Page Content -->
 <div class="page-content page-auth">
