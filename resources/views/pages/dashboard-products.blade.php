@@ -14,7 +14,7 @@
           <div class="dashboard-heading">
             <h2 class="dashboard-title">Data Aset</h2>
             <p class="dashboard-subtitle">
-              List Aset yang ada di bidang {{ Auth::user()->name }}
+              List Aset yang ada di {{ Auth::user()->name }}
             </p>
           </div>
           <div class="dashboard-content">

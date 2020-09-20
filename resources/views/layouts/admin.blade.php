@@ -37,7 +37,7 @@
               href="{{ route('category.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/category*')) ? 'active' : '' }}"
              >
-              Categories
+              Kategori
             </a>
             <a
               href="{{ route('proposal.index') }}"
@@ -55,25 +55,19 @@
               href="{{ route('product.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/product')) ? 'active' : '' }}"
              >
-              Products
+              Aset
             </a>
             <a
               href="{{ route('product-gallery.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/product-gallery*')) ? 'active' : '' }}"
              >
-              Galeri Product
-            </a>
-            <a
-              href="#"
-              class="list-group-item list-group-item-action"
-             >
-              Transactions
+              Galeri Aset
             </a>
             <a
               href="{{ route('user.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/user*')) ? 'active' : '' }}"
              >
-              Users
+              Data Users
             </a>
             {{-- <a
               href="#"

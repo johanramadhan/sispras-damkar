@@ -79,8 +79,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $data = $request->all();
-
-        // $data['password'] = bcrypt($request->password);
+        $data['password'] = bcrypt($request->password);
         $data['slug'] = Str::slug($request->name);
         $data['photo'] = $request->file('photo')->store('assets/user','public');
 
