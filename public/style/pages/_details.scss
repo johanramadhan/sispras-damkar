@@ -8,6 +8,10 @@
     .damkar-gallery {
         margin-top: 20px;
 
+        .main-image {
+            box-shadow: none;
+        }
+
         img {
             border-radius: 10px;
         }

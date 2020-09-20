@@ -75,7 +75,8 @@
                   {{ $proposal->name }} - {{ $proposal->brand }}
                 </div>
                 <div class="products-price">
-                  {{ number_format($proposal->total_price) }} <small><i>({{ $proposal->qty }} {{ $proposal->satuan }} x {{ number_format($proposal->price) }})</i></small>
+                  {{-- {{ number_format($proposal->total_price) }} <small><i>({{ $proposal->qty }} {{ $proposal->satuan }} x {{ number_format($proposal->price) }})</i></small> --}}
+                  {{ $proposal->proposal_status }}
                 </div>
               </a>
             </div>
