@@ -75,7 +75,7 @@
                   {{ $product->name }}
                 </div>
                 <div class="products-price">
-                  {{ number_format($product->price) }}
+                  {{ $product->kondisi }}
                 </div>
               </a>
             </div>

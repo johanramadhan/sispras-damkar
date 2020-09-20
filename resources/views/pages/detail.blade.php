@@ -120,7 +120,7 @@
               <h1>{{ $item->name }}</h1>
               <div class="owner">By : {{ $item->user->name }}</div>
               <div class="owner">Kategori : {{ $item->category->name }}</div>
-              <div class="price">Rp{{ number_format($item->price) }},00</div>
+              <div class="price">Rp{{ number_format($item->price) }},00 <small class="owner"><i>(nilai aset)</i></small></div>
             </div>
             
             <div class="col-lg-2" data-aos="zoom-in">
@@ -161,6 +161,10 @@
           <div class="row">
             <div class="col-12 col-lg-8">
               <p>Deskripsi Barang</p>
+              <small class="owner">
+                Status : {{ $item->status }} <br>
+                Kondisi : {{ $item->kondisi }}
+              </small>
               <p>
                 {!! $item->description !!}
               </p>
