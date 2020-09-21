@@ -170,10 +170,12 @@
         <div class="container">
           <div class="row">
             <div class="col-12 col-lg-8">
-              <p>Deskripsi Barang</p>
+              <p>Deskripsi Aset</p>
               <small class="owner">
                 Status : {{ $item->status }} <br>
-                Kondisi : {{ $item->kondisi }}
+                Kondisi : {{ $item->kondisi }} <br>
+                Fungsi : {{ $item->fungsi }} <br>
+                Merek/kode :  {{ $item->brand }}
               </small>
               <p>
                 {!! $item->description !!}

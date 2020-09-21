@@ -140,11 +140,17 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Link Video Dari Youtube</label> <small><i>( Masukkan link video barang jika ada )</i></small>
-                          <textarea name="link" class="form-control" rows="1"></textarea>
+                          <label>Merek</label>
+                          <input type="text" name="brand" class="form-control" required>
                         </div>
                       </div>
-                      <div class="col-md-12">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Link Video Dari Youtube</label> <small><i>( Masukkan link video barang jika ada )</i></small>
+                          <textarea name="link" class="form-control" rows="2"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label>Fungsi Aset</label>
                           <textarea name="fungsi" class="form-control" rows="2"></textarea>
