@@ -120,7 +120,7 @@
               <h1>{{ $item->name }} - {{ $item->brand }}</h1>
               <div class="owner">By : {{ $item->user->name }}</div>
               <div class="owner">Kategori : {{ $item->category->name }}</div>
-              <div class="owner">Waktu Pengajuan : {{ $item->created_at }}</div>
+              <div class="owner">Waktu Pengajuan : {{ $item->created_at->format('d-M-Y') }}</div>
               <div class="owner">Status : {{ $item->proposal_status }}</div>
               <div class="owner">Catatan : {{ $item->note }}</div>
               <div class="price">Rp{{ number_format($item->total_price) }},00 <small><i>({{ $item->qty }} {{ $item->satuan }} x Rp{{ number_format($item->price) }})</i></small> </div>

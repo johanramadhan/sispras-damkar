@@ -141,18 +141,18 @@
                               class="w-50"
                             />
                           </div>
-                          <div class="col-md-2">{{ $pengajuan->name }}</div>
+                          <div class="col-md-2">{{ $pengajuan->name }} - {{ $pengajuan->brand }}</div>
                           <div class="col-md-2">{{ $pengajuan->user->name }}</div>
                           <div class="col-md-2">Rp{{ number_format($pengajuan->total_price) }}</div>
-                          <div class="col-md-2">{{ Str::limit($pengajuan->benefit, 20 ?? '') }}</div>
+                          <div class="col-md-2">{{ Str::limit($pengajuan->benefit, 30 ?? '') }}</div>
                           <div class="col-md-1">{{ $pengajuan->proposal_status }}</div>
-                          <div class="col-md-1">{{ $pengajuan->created_at }}</div>
-                          <div class="col-md-1 d-none d-md-block">
+                          <div class="col-md-2">{{ date('d-M-Y', strtotime($pengajuan->created_at)) }}</div>
+                          {{-- <div class="col-md-1 d-none d-md-block">
                             <img
                               src="/images/dashboard-arrow-right.svg"
                               alt=""
                             />
-                          </div>
+                          </div> --}}
                         </div>
                       </div>
                     </a>

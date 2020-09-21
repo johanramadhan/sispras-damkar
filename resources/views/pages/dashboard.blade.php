@@ -101,7 +101,7 @@
                           Rp{{ number_format($proposals->total_price) ?? '' }}
                       </div>
                       <div class="col-md-2">
-                          {{ $proposals->created_at ?? '' }}
+                          {{ $proposals->created_at->format('d-M-Y') }}
                       </div>
                       <div
                           class="col-md-1 d-none d-md-block"

@@ -159,7 +159,7 @@
                           <div class="col-md-1">{{ $proposal->qty }} {{ $proposal->satuan }}</div>
                           <div class="col-md-2">Rp{{ number_format($proposal->total_price) }}</div>
                           <div class="col-md-2">{{ $proposal->proposal_status }}</div>
-                          <div class="col-md-2">{{ $proposal->created_at }}</div>
+                          <div class="col-md-2">{{ date('d-M-Y', strtotime($proposal->created_at)) }}</div>
                           <div class="col-md-1 d-none d-md-block">
                             <img
                               src="/images/dashboard-arrow-right.svg"

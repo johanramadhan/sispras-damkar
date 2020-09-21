@@ -118,6 +118,7 @@
                     </a>
                     <div class="dropdown-menu">
                       <a href="{{ route('home') }}" class="dropdown-item">Home</a>
+                      <a href="{{ route('pengajuans') }}" class="dropdown-item">Pengajuan</a>
                       <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
                       <div class="dropdown-divider"></div>
                       <a href="{{ route('logout') }}"
@@ -129,8 +130,8 @@
                       </form>
                     </div>
                   </li>
-                  <li class="nav-item">
-                    {{-- <a href="{{ route('cart') }}" class="nav-link d-inlink-block mt-2"> --}}
+                  {{-- <li class="nav-item">
+                    <a href="{{ route('cart') }}" class="nav-link d-inlink-block mt-2">
                       @php
                           $carts = \App\Cart::where('users_id', Auth::user()->id)->count();
                       @endphp
@@ -142,7 +143,7 @@
                       @endif
                       
                     </a>
-                  </li>
+                  </li> --}}
                 </ul>
 
                 <!-- Mobile Menu -->
