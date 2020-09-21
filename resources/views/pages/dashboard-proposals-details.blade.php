@@ -179,7 +179,7 @@
       </div>
       <div class="modal-body">
         <div class="embed-responsive embed-responsive-16by9">
-          {!! $item->link !!}
+          {!! $item->link ?? 'Tidak ada video' !!}
         </div>
       </div>
       <div class="modal-footer">

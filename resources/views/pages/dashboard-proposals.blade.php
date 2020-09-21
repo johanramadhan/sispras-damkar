@@ -77,12 +77,13 @@
                                   <tr>
                                     <th>ID</th>
                                     <th>Nama Barang</th>
-                                    <th>Kategori</th>
-                                    <th>Jumlah</th>
+                                    <th class="text-center">Kategori</th>
+                                    <th class="text-center">Jumlah</th>
+                                    <th class="text-center">Satuan</th>
                                     <th>Harga Satuan</th>
                                     <th>Total Harga</th>
-                                    <th>Fungsi</th>
-                                    <th>Aksi</th>
+                                    <th class="text-center">Fungsi</th>
+                                    <th class="text-center">Aksi</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -91,7 +92,8 @@
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $proposal->name }}</td>
                                       <td>{{ $proposal->category->name }}</td>
-                                      <td>{{ $proposal->qty }}</td>
+                                      <td class="text-center">{{ $proposal->qty }}</td>
+                                      <td class="text-center">{{ $proposal->satuan }}</td>
                                       <td>Rp{{ number_format($proposal->price) }}</td>
                                       <td>Rp{{ number_format($proposal->total_price) }}</td>
                                       <td>{{ $proposal->benefit }}</td>
@@ -106,6 +108,9 @@
                                             <div class="dropdown-menu">
                                               <a class="dropdown-item" href="{{ route('dashboard-proposal-edit', $proposal->id) }}">
                                                 Edit
+                                              </a>
+                                              <a class="dropdown-item" href="{{ route('dashboard-proposal-detail', $proposal->id) }}">
+                                                Detail
                                               </a>
                                               <form action="{{ route('dashboard-proposal-delete', $proposal->id) }}" method="POST">
                                                 {{method_field('delete')}} {{  csrf_field()}}
@@ -150,9 +155,11 @@
                               class="w-50"
                             />
                           </div>
-                          <div class="col-md-4">{{ $proposal->name }}</div>
-                          <div class="col-md-3">{{ $proposal->user->name }}</div>
-                          <div class="col-md-3">{{ $proposal->created_at }}</div>
+                          <div class="col-md-3">{{ $proposal->name }} - {{ $proposal->brand }}</div>
+                          <div class="col-md-1">{{ $proposal->qty }} {{ $proposal->satuan }}</div>
+                          <div class="col-md-2">Rp{{ number_format($proposal->total_price) }}</div>
+                          <div class="col-md-2">{{ $proposal->proposal_status }}</div>
+                          <div class="col-md-2">{{ $proposal->created_at }}</div>
                           <div class="col-md-1 d-none d-md-block">
                             <img
                               src="/images/dashboard-arrow-right.svg"
