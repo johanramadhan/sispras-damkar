@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>    Pengajuan
+</title>
+
+          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+      <link href="/style/main.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
+      </head>
+
+  <body>
+    <div class="page-dashboard">
+      <div class="d-flex" id="wrapper" data-aos="fade-right">
+        <!-- Sidebar -->
+        <div class="border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading text-center">
+            <img src="/images/fireman.svg" alt="" class="my-4 w-50" />
+          </div>
+          <div class="list-group list-group-flush">
+            <a
+              href="http://127.0.0.1:8000/admin"
+              class="list-group-item list-group-item-action "
+            >
+              Dashboard
+            </a>
+            <a
+              href="http://127.0.0.1:8000/admin/category"
+              class="list-group-item list-group-item-action "
+             >
+              Kategori
+            </a>
+            <a
+              href="http://127.0.0.1:8000/admin/proposal"
+              class="list-group-item list-group-item-action "
+             >
+              Pengajuan
+            </a>
+            <a
+              href="http://127.0.0.1:8000/admin/proposal-gallery"
+              class="list-group-item list-group-item-action "
+             >
+              Galeri Pengajuan
+            </a>
+            <a
+              href="http://127.0.0.1:8000/admin/product"
+              class="list-group-item list-group-item-action "
+             >
+              Aset
+            </a>
+            <a
+              href="http://127.0.0.1:8000/admin/product-gallery"
+              class="list-group-item list-group-item-action "
+             >
+              Galeri Aset
+            </a>
+            <a
+              href="http://127.0.0.1:8000/admin/user"
+              class="list-group-item list-group-item-action "
+             >
+              Data Users
+            </a>
+            
+            <a
+              href="http://127.0.0.1:8000/logout"
+              onclick="event.preventDefault(); 
+              document.getElementById('logout-form').submit();"
+              class="list-group-item list-group-item-action"
+            >
+              Sign Out
+            </a>
+          </div>
+        </div>
+
+         <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" style="display: none;">
+            <input type="hidden" name="_token" value="TCKz2qAX8KLLJHoVa9keoIB9vBeno6mH5nHy1WWX">        </form>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <nav
+            class="navbar navbar-expand-lg navbar-light navbar-damkar fixed-top"
+            data-aos="fade-down"
+          >
+            <div class="container-fluid">
+              <button
+                class="btn btn-secondary d-md-none mr-auto mr-2"
+                id="menu-toggle"
+              >
+                &laquo; Menu
+              </button>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Desktop Menu -->
+                <ul class="navbar-nav d-none d-lg-flex ml-auto">
+                  <li class="nav-item dropdown">
+                    <a
+                      href="#"
+                      class="nav-link"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                    >
+                      <img
+                        src="/images/logo-damkar.png"
+                        alt=""
+                        class="rounded-circle-2 mr-2 profile-picture"
+                      />
+                      Hi, Bidang Sarana dan Prasarana
+                    </a>
+                    <div class="dropdown-menu">
+                      <a href="http://127.0.0.1:8000" class="dropdown-item">Home</a>
+                      <a href="http://127.0.0.1:8000/pengajuan" class="dropdown-item">Pengajuan</a>
+                      <a href="http://127.0.0.1:8000/admin" class="dropdown-item">Dashboard 1</a>
+                      <a href="http://127.0.0.1:8000/dashboard" class="dropdown-item">Dashboard 2</a>
+                      <div class="dropdown-divider"></div>
+                      <a href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
+                    </div>
+                  </li>
+                  
+                </ul>
+
+                <!-- Mobile Menu -->
+                <ul class="navbar-nav d-block d-lg d-lg-none">
+                  <li class="nav-item">
+                    <a href="http://127.0.0.1:8000" class="nav-link">Home</a>
+                    <a href="http://127.0.0.1:8000/pengajuan" class="nav-link">Pengajuan</a>
+                    <a href="http://127.0.0.1:8000/admin" class="nav-link">Dashboard 1</a>
+                    <a href="http://127.0.0.1:8000/dashboard" class="nav-link">Dashboard 2</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Hi, Bidang Sarana dan Prasarana
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/logout"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();" class="btn btn-danger nav-link px-4 text-white">Logout
+                    </a>
+                    <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" style="display: none;">
+                        <input type="hidden" name="_token" value="TCKz2qAX8KLLJHoVa9keoIB9vBeno6mH5nHy1WWX">                    </form>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          
+            <!-- Section Content -->
+  <div
+      class="section-content section-dashboard-home"
+      data-aos="fade-up"
+  >
+    <div class="container-fluid">
+        <div class="dashboard-heading">
+          <h2 class="dashboard-title">Pengajuan</h2>
+          <p class="dashboard-subtitle">
+              List Pengajuan
+          </p>
+        </div>
+        <div class="dashboard-content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <a href="http://127.0.0.1:8000/admin/proposal/create" class="btn btn-primary mb-3">
+                  + Pengajuan Baru
+                  </a>
+                  <a href="http://127.0.0.1:8000/admin/admin/proposal/proposalexport" class="btn btn-success mb-3">
+                  Export Excel
+                  </a>
+                  <div class="table-responsive">
+                    <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Kode Pengajuan</th>
+                          <th>Nama Barang</th>
+                          <th>User Pengaju</th>
+                          <th>Kategori</th>
+                          <th>Jumlah</th>
+                          <th>Harga Satuan</th>
+                          <th>Total Harga</th>
+                          <th>Fungsi</th>
+                          <th>Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+        <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="/script/navbar-scroll.js"></script>
+    <script>
+      $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+      <script>
+    var datatable = $('#crudTable').DataTable({
+      processing: true,
+      serverside: true,
+      ordering: true,
+      ajax: {
+        url: 'http://127.0.0.1:8000/admin/admin/proposal/proposalexport',
+      },
+      columns: [
+        { data: 'id', name: 'id' },
+        { data: 'code', name: 'code' },
+        { data: 'name', name: 'name' },
+        { data: 'user.name', name: 'user.name' },
+        { data: 'category.name', name: 'category.name' },
+        { data: 'qty', name: 'qty' },
+        { data: 'price', name: 'price' },
+        { data: 'total_price', name: 'total_price' },
+        { data: 'benefit', name: 'benefit' },
+        { 
+          data: 'action', 
+          name: 'action',
+          orderable: false,
+          searcable: false,
+          width: '15%'
+        },
+
+      ]
+    })
+  </script>
+  </body>
+</html>
