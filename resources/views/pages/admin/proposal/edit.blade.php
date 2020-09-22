@@ -90,6 +90,8 @@
                           <option value="Bidang">Bidang</option>
                           <option value="Unit">Unit</option>
                           <option value="Buah">Buah</option>
+                          <option value="Roll">Roll</option>
+                          <option value="Stell">Stell</option>
                           <option value="Jalan">Jalan</option>
                           <option value="Paket">Paket</option>
                           <option value="Besi">Besi</option>
