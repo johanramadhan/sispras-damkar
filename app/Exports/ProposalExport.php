@@ -4,17 +4,24 @@ namespace App\Exports;
 
 use App\Proposal;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\Exportable;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class ProposalExport implements FromCollection
+class ProposalExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
     */
-    use Exportable;
-
-    public function collection()
+    
+    
+    public function view(): View
     {
-        return Proposal::all();
+        $proposals = Proposal::with(['user', 'category'])->get();
+
+        return view('pages.admin.exports.proposal', [
+            'proposals' => $proposals
+        ]);
     }
+
+    
 }
