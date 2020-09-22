@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function() {
 
   Route::get('/pengajuan', 'PengajuanController@index')->name('pengajuans');
   Route::get('/pengajuan/{id}', 'PengajuanController@detail')->name('pengajuans-detail');
+  
 
   Route::post('/checkout', 'CheckoutController@process')->name('checkout');
 
@@ -88,6 +89,7 @@ Route::prefix('admin')
     Route::resource('product-gallery', 'ProductGalleryController');
     Route::resource('proposal', 'ProposalController');
     Route::resource('proposal-gallery', 'ProposalGalleryController');
+    Route::get('/admin/proposal/proposalexport', 'ProposalController@export')->name('proposalexport');
     Route::get('proposal/detail/{id}', 'ProposalDetailController@detail')->name('dashboard-proposal-details');
     Route::post('proposal/detail/{id}', 'ProposalDetailController@update')->name('dashboard-proposal-update');
   });

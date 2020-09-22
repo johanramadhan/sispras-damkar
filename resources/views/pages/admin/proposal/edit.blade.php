@@ -12,7 +12,7 @@
   >
     <div class="container-fluid">
       <div class="dashboard-heading">
-        <h2 class="dashboard-title">Pengajuan</h2>
+        <h2 class="dashboard-title">Pengajuan {{ $item->code }}</h2>
         <p class="dashboard-subtitle">
           Edit Pengajuan
         </p>

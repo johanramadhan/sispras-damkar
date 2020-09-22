@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@push('addon-style')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
+@endpush
+
 @section('title')
     Pengajuan
 @endsection
@@ -25,23 +29,64 @@
                   <a href="{{ route('proposal.create') }}" class="btn btn-primary mb-3">
                   + Pengajuan Baru
                   </a>
+                  <a href="{{ route('proposalexport') }}" class="btn btn-success mb-3">
+                  Export Excel
+                  </a>
                   <div class="table-responsive">
-                    <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
+                    <table class="table table-hover scroll-horizontal-vertical w-100" id="dataTable">
                       <thead>
                         <tr>
                           <th>ID</th>
                           <th>Kode Pengajuan</th>
                           <th>Nama Barang</th>
-                          <th>User Pengaju</th>
-                          <th>Kategori</th>
+                          <th class="text-center">User Pengaju</th>
+                          <th class="text-center">Kategori</th>
                           <th>Jumlah</th>
-                          <th>Harga Satuan</th>
+                          <th class="text-center">Harga Satuan</th>
                           <th>Total Harga</th>
-                          <th>Fungsi</th>
+                          <th class="text-center">Fungsi</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
-                      <tbody></tbody>
+                      <tbody>
+                        @foreach ($proposals as $proposal)
+                          <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $proposal->code }}</td>
+                            <td>{{ $proposal->name }}</td>
+                            <td>{{ $proposal->user->name }}</td>
+                            <td>{{ $proposal->category->name }}</td>
+                            <td class="text-center">{{ $proposal->qty }}</td>
+                            <td>Rp{{ number_format($proposal->price) }}</td>
+                            <td>Rp{{ number_format($proposal->total_price) }}</td>
+                            <td>{{ $proposal->benefit }}</td>
+                            <td>
+                              <div class="btn-group">
+                                <div class="dropdown">
+                                  <button class="btn btn-primary dropdown-toggle mr-1 mb-1"        
+                                    type="button"
+                                    data-toggle="dropdown">
+                                    Aksi
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('proposal.edit', $proposal->id) }}">
+                                      Edit
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('dashboard-proposal-details', $proposal->id) }}">
+                                      Detail
+                                    </a>
+                                    <form action="{{ route('proposal.destroy', $proposal->id) }}" method="POST">
+                                      {{method_field('delete')}} {{  csrf_field()}}
+                                      <button type="submit" class="dropdown-item text-danger">
+                                        Hapus
+                                      </button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                        @endforeach
+                      </tbody>
                     </table>
                   </div>
                 </div>
@@ -54,7 +99,17 @@
 @endsection
 
 @push('addon-script')
-  <script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+ <script>
+    $(function () {
+      $('#dataTable').DataTable({
+        
+        
+      });
+    });
+  </script>
+
+  {{-- <script>
     var datatable = $('#crudTable').DataTable({
       processing: true,
       serverside: true,
@@ -82,5 +137,5 @@
 
       ]
     })
-  </script>
+  </script> --}}
 @endpush

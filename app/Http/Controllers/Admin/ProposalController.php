@@ -2,24 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Category;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ProposalGalleryRequest;
-use App\Http\Requests\Admin\ProposalRequest;
 use App\Proposal;
 use App\ProposalGallery;
-use App\User;
+use App\Http\Controllers\Controller;
+use App\Exports\ProposalExport;
+
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
 
-use Illuminate\Support\Str;
+use App\Http\Requests\Admin\ProposalRequest;
+use App\Http\Requests\Admin\ProposalGalleryRequest;
 
 class ProposalController extends Controller
 {
     public function index()
     {
-        if(request()->ajax())
+      $proposals = Proposal::with(['user', 'category'])->get();
+        
+      if(request()->ajax())
         {
             $query = Proposal::with(['user', 'category']);
 
@@ -63,9 +68,18 @@ class ProposalController extends Controller
               })
               ->rawColumns(['action'])
               ->make();
-        }
+        }        
 
-        return view('pages.admin.proposal.index');
+        return view('pages.admin.proposal.index',[
+          'proposals' => $proposals
+        ]);
+    }
+
+    public function export()
+    {
+      return Excel::download(new ProposalExport, 'pengajuan damkar_2021.xlsx');
+      // return (new ProposalExport)->download('pengajuan damkar_2021.xlsx');
+      
     }
 
     public function create()
