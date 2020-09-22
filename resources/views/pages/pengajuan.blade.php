@@ -19,7 +19,7 @@
         @php $incrementCategory = 0 @endphp
         @forelse ($users as $user)
             <div
-              class="col-6 col-md-3 col-lg-2"
+              class="col-6 col-md-3 col-lg-2 mb-4"
               data-aos="fade-up"
               data-aos-delay="{{ $incrementCategory+= 100 }}">
               <a href="{{ route('pengajuans-detail', $user->slug) }}" class="component-categories d-block w-100 h-100">

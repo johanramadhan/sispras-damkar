@@ -150,6 +150,8 @@
                 <ul class="navbar-nav d-block d-lg d-lg-none">
                   <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link">Home</a>
+                    <a href="{{ route('pengajuans') }}" class="nav-link">Pengajuan</a>
+                    <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">

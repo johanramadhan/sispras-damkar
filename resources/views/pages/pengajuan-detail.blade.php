@@ -75,7 +75,7 @@
     <section class="damkar-gallery mb-4" id="gallery">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8" data-aos="zoom-in">
+          <div class="col-lg-8 col-md-12" data-aos="zoom-in">
             <transition name="slide-fade" made="out-in">
               @if ($item->galleries->count())
                   <img
@@ -90,12 +90,12 @@
           </div>
           <div class="col-lg-2">
             <div class="row">
-              <div
-                class="col-3 col-lg-12 mt-2 mt-lg-0"
-                data-aos="zoom-in"
-                data-aos-delay="100"
-              >
-                @foreach ($item->galleries as $items)
+              @foreach ($item->galleries as $items)
+                <div
+                  class="col-2 col-md-3 col-lg-10 mt-2 mt-lg-0"
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                >
                   <a href="{{ Storage::url($items->photos) }}" class="d-block">
                     <img
                       src="{{ Storage::url($items->photos) }}"
@@ -103,8 +103,8 @@
                       xpreview="{{ Storage::url($items->photos) }}"
                     />
                   </a>
-                @endforeach  
-              </div>
+                </div>
+              @endforeach 
             </div>
           </div>
         </div>

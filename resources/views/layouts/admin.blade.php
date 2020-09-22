@@ -163,11 +163,26 @@
                 <!-- Mobile Menu -->
                 <ul class="navbar-nav d-block d-lg d-lg-none">
                   <li class="nav-item">
+                    <a href="{{ route('home') }}" class="nav-link">Home</a>
+                    <a href="{{ route('pengajuans') }}" class="nav-link">Pengajuan</a>
+                    <a href="{{ route('admin-dashboard') }}" class="nav-link">Dashboard 1</a>
+                    <a href="{{ route('dashboard') }}" class="nav-link">Dashboard 2</a>
+                  </li>
+                  <li class="nav-item">
                     <a href="#" class="nav-link">
                       Hi, {{ Auth::user()->name }}
                     </a>
                   </li>
                   <li class="nav-item">
+                    <a href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();" class="btn btn-danger nav-link px-4 text-white">Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                  </li>
+                  {{-- <li class="nav-item">
                     <a href="{{ route('cart') }}" class="nav-link d-inlink-block mt-2">
                       @php
                           $carts = \App\Cart::where('users_id', Auth::user()->id)->count();
@@ -180,7 +195,7 @@
                       @endif
                       
                     </a>
-                  </li>
+                  </li> --}}
                 </ul>
               </div>
             </div>
