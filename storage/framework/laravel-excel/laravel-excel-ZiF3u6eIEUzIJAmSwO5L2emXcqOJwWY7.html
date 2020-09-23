@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>    Pengajuan
+</title>
+
+          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+      <link href="/style/main.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
+  </head>
+
+  <body>
+    <div class="page-dashboard">
+      <div class="d-flex" id="wrapper" data-aos="fade-right">
+        <!-- Sidebar -->
+        <div class="border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading text-center">
+            <img src="/images/fireman.svg" alt="" class="my-4 w-50" />
+          </div>
+          <div class="list-group list-group-flush">
+            <a
+              href="http://sispras-damkar.test/admin"
+              class="list-group-item list-group-item-action "
+            >
+              Dashboard
+            </a>
+            <a
+              href="http://sispras-damkar.test/admin/category"
+              class="list-group-item list-group-item-action "
+             >
+              Kategori
+            </a>
+            <a
+              href="http://sispras-damkar.test/admin/proposal"
+              class="list-group-item list-group-item-action "
+             >
+              Pengajuan
+            </a>
+            <a
+              href="http://sispras-damkar.test/admin/proposal-gallery"
+              class="list-group-item list-group-item-action "
+             >
+              Galeri Pengajuan
+            </a>
+            <a
+              href="http://sispras-damkar.test/admin/product"
+              class="list-group-item list-group-item-action "
+             >
+              Aset
+            </a>
+            <a
+              href="http://sispras-damkar.test/admin/product-gallery"
+              class="list-group-item list-group-item-action "
+             >
+              Galeri Aset
+            </a>
+            <a
+              href="http://sispras-damkar.test/admin/user"
+              class="list-group-item list-group-item-action "
+             >
+              Data Users
+            </a>
+            
+            <a
+              href="http://sispras-damkar.test/logout"
+              onclick="event.preventDefault(); 
+              document.getElementById('logout-form').submit();"
+              class="list-group-item list-group-item-action"
+            >
+              Sign Out
+            </a>
+          </div>
+        </div>
+
+         <form id="logout-form" action="http://sispras-damkar.test/logout" method="POST" style="display: none;">
+            <input type="hidden" name="_token" value="pVIEOCHEAbb4SGpHe8FFcNsBBulRlngAkszWR9ga">        </form>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <nav
+            class="navbar navbar-expand-lg navbar-light navbar-damkar fixed-top"
+            data-aos="fade-down"
+          >
+            <div class="container-fluid">
+              <button
+                class="btn btn-secondary d-md-none mr-auto mr-2"
+                id="menu-toggle"
+              >
+                &laquo; Menu
+              </button>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Desktop Menu -->
+                <ul class="navbar-nav d-none d-lg-flex ml-auto">
+                  <li class="nav-item dropdown">
+                    <a
+                      href="#"
+                      class="nav-link"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                    >
+                      <img
+                        src="/images/logo-damkar.png"
+                        alt=""
+                        class="rounded-circle-2 mr-2 profile-picture"
+                      />
+                      Hi, Bidang Sarana dan Prasarana
+                    </a>
+                    <div class="dropdown-menu">
+                      <a href="http://sispras-damkar.test" class="dropdown-item">Home</a>
+                      <a href="http://sispras-damkar.test/pengajuan" class="dropdown-item">Pengajuan</a>
+                      <a href="http://sispras-damkar.test/admin" class="dropdown-item">Dashboard 1</a>
+                      <a href="http://sispras-damkar.test/dashboard" class="dropdown-item">Dashboard 2</a>
+                      <div class="dropdown-divider"></div>
+                      <a href="http://sispras-damkar.test/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
+                    </div>
+                  </li>
+                  
+                </ul>
+
+                <!-- Mobile Menu -->
+                <ul class="navbar-nav d-block d-lg d-lg-none">
+                  <li class="nav-item">
+                    <a href="http://sispras-damkar.test" class="nav-link">Home</a>
+                    <a href="http://sispras-damkar.test/pengajuan" class="nav-link">Pengajuan</a>
+                    <a href="http://sispras-damkar.test/admin" class="nav-link">Dashboard 1</a>
+                    <a href="http://sispras-damkar.test/dashboard" class="nav-link">Dashboard 2</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Hi, Bidang Sarana dan Prasarana
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="http://sispras-damkar.test/logout"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();" class="btn btn-danger nav-link px-4 text-white">Logout
+                    </a>
+                    <form id="logout-form" action="http://sispras-damkar.test/logout" method="POST" style="display: none;">
+                        <input type="hidden" name="_token" value="pVIEOCHEAbb4SGpHe8FFcNsBBulRlngAkszWR9ga">                    </form>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          
+            <!-- Section Content -->
+  <div
+      class="section-content section-dashboard-home"
+      data-aos="fade-up"
+  >
+    <div class="container-fluid">
+        <div class="dashboard-heading">
+          <h2 class="dashboard-title">Pengajuan</h2>
+          <p class="dashboard-subtitle">
+              List Pengajuan
+          </p>
+        </div>
+        <div class="dashboard-content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <a href="http://sispras-damkar.test/admin/proposal/create" class="btn btn-primary mb-3">
+                  + Pengajuan Baru
+                  </a>
+                  <a href="http://sispras-damkar.test/admin/admin/proposal/proposalexport" class="btn btn-success mb-3">
+                  Export Excel
+                  </a>
+                  <div class="table-responsive">
+                    <table class="table table-hover scroll-horizontal-vertical w-100" id="dataTable">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Kode Pengajuan</th>
+                          <th>Nama Barang</th>
+                          <th class="text-center">User Pengaju</th>
+                          <th class="text-center">Kategori</th>
+                          <th>Jumlah</th>
+                          <th class="text-center">Harga Satuan</th>
+                          <th>Total Harga</th>
+                          <th class="text-center">Fungsi</th>
+                          <th>Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                                                  <tr>
+                            <td>1</td>
+                            <td>SISPRAS-551275</td>
+                            <td>Leptop</td>
+                            <td>Sub Bagian Keuangan</td>
+                            <td>Peralatan Kantor</td>
+                            <td class="text-center">2</td>
+                            <td>Rp15,000,000</td>
+                            <td>Rp30,000,000</td>
+                            <td>Operasional Kerja</td>
+                            <td>
+                              <div class="btn-group">
+                                <div class="dropdown">
+                                  <button class="btn btn-primary dropdown-toggle mr-1 mb-1"        
+                                    type="button"
+                                    data-toggle="dropdown">
+                                    Aksi
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="http://sispras-damkar.test/admin/proposal/1/edit">
+                                      Edit
+                                    </a>
+                                    <a class="dropdown-item" href="http://sispras-damkar.test/admin/proposal/detail/1">
+                                      Detail
+                                    </a>
+                                    <form action="http://sispras-damkar.test/admin/proposal/1" method="POST">
+                                      <input type="hidden" name="_method" value="delete"> <input type="hidden" name="_token" value="pVIEOCHEAbb4SGpHe8FFcNsBBulRlngAkszWR9ga">
+                                      <button type="submit" class="dropdown-item text-danger">
+                                        Hapus
+                                      </button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                                                  <tr>
+                            <td>2</td>
+                            <td>SISPRAS-700599</td>
+                            <td>HELM SAFETY</td>
+                            <td>Bidang Operasional Pemadam</td>
+                            <td>Peralatan Pemadam</td>
+                            <td class="text-center">25</td>
+                            <td>Rp1,650,000</td>
+                            <td>Rp41,250,000</td>
+                            <td>Alat Safety Kepala saat Pemadaman</td>
+                            <td>
+                              <div class="btn-group">
+                                <div class="dropdown">
+                                  <button class="btn btn-primary dropdown-toggle mr-1 mb-1"        
+                                    type="button"
+                                    data-toggle="dropdown">
+                                    Aksi
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="http://sispras-damkar.test/admin/proposal/2/edit">
+                                      Edit
+                                    </a>
+                                    <a class="dropdown-item" href="http://sispras-damkar.test/admin/proposal/detail/2">
+                                      Detail
+                                    </a>
+                                    <form action="http://sispras-damkar.test/admin/proposal/2" method="POST">
+                                      <input type="hidden" name="_method" value="delete"> <input type="hidden" name="_token" value="pVIEOCHEAbb4SGpHe8FFcNsBBulRlngAkszWR9ga">
+                                      <button type="submit" class="dropdown-item text-danger">
+                                        Hapus
+                                      </button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                                                  <tr>
+                            <td>3</td>
+                            <td>SISPRAS-55669</td>
+                            <td>SELANG RUBBER 1,5 INCH</td>
+                            <td>Bidang Operasional Pemadam</td>
+                            <td>Peralatan Pemadam</td>
+                            <td class="text-center">10</td>
+                            <td>Rp6,000,000</td>
+                            <td>Rp60,000,000</td>
+                            <td>Alat Pemadam Kebakaran</td>
+                            <td>
+                              <div class="btn-group">
+                                <div class="dropdown">
+                                  <button class="btn btn-primary dropdown-toggle mr-1 mb-1"        
+                                    type="button"
+                                    data-toggle="dropdown">
+                                    Aksi
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="http://sispras-damkar.test/admin/proposal/3/edit">
+                                      Edit
+                                    </a>
+                                    <a class="dropdown-item" href="http://sispras-damkar.test/admin/proposal/detail/3">
+                                      Detail
+                                    </a>
+                                    <form action="http://sispras-damkar.test/admin/proposal/3" method="POST">
+                                      <input type="hidden" name="_method" value="delete"> <input type="hidden" name="_token" value="pVIEOCHEAbb4SGpHe8FFcNsBBulRlngAkszWR9ga">
+                                      <button type="submit" class="dropdown-item text-danger">
+                                        Hapus
+                                      </button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                                              </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+        <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="/script/navbar-scroll.js"></script>
+    <script>
+      $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+ <script>
+    $(function () {
+      $('#dataTable').DataTable({
+        
+        
+      });
+    });
+  </script>
+
+  
+  </body>
+</html>
