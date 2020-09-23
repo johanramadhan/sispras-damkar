@@ -46,4 +46,12 @@
         </tr>
     @endforeach
     </tbody>
+    <tfoot>
+        <tr>
+            <td style="text-align: center; font-weight: bold; border: 1px solid black"></td>
+            <td style="text-align: center; font-weight: bold; border: 1px solid black" colspan="8">TOTAL</td>
+            <td style="text-align: right; font-weight: bold; border: 1px solid black">Rp{{ number_format($pengajuan) }}</td>
+            <td style="text-align: center; font-weight: bold; border: 1px solid black" colspan="4"></td>
+        </tr>
+    </tfoot>
 </table>

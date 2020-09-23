@@ -18,9 +18,11 @@ class ProposalExport implements FromView, ShouldAutoSize
     public function view(): View
     {
         $proposals = Proposal::with(['user', 'category'])->get();
+        $pengajuan = Proposal::sum('total_price');
 
         return view('pages.admin.exports.proposal', [
-            'proposals' => $proposals
+            'proposals' => $proposals,
+            'pengajuan' => $pengajuan,
         ]);
     }
 
