@@ -49,7 +49,7 @@
                           <th>Aksi</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody>                        
                         @foreach ($proposals as $proposal)
                           <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -91,6 +91,14 @@
                             </td>
                         @endforeach
                       </tbody>
+                      <tfoot>
+                        <tr>
+                          <td></td>
+                          <td colspan="6" class="font-weight-bold">Total</td>
+                          <td class="text-right font-weight-bold">Rp{{ number_format($pengajuan ?? '') }}</td>
+                          <td colspan="3"></td>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div>
                 </div>

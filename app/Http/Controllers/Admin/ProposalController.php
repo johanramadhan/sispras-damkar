@@ -23,6 +23,7 @@ class ProposalController extends Controller
     public function index()
     {
       $proposals = Proposal::with(['user', 'category'])->get();
+      $pengajuan = Proposal::sum('total_price');
         
       if(request()->ajax())
         {
@@ -71,7 +72,8 @@ class ProposalController extends Controller
         }        
 
         return view('pages.admin.proposal.index',[
-          'proposals' => $proposals
+          'proposals' => $proposals,
+          'pengajuan' => $pengajuan,
         ]);
     }
 
