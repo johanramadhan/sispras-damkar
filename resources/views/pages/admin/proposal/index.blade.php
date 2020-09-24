@@ -45,6 +45,7 @@
                           <th class="text-center">Harga Satuan</th>
                           <th>Total Harga</th>
                           <th class="text-center">Fungsi</th>
+                          <th>Gambar</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
@@ -60,6 +61,9 @@
                             <td>Rp{{ number_format($proposal->price) }}</td>
                             <td>Rp{{ number_format($proposal->total_price) }}</td>
                             <td>{{ $proposal->benefit }}</td>
+                            <td>
+                              <img src="{{Storage::url($proposal->galleries->first()->photos)}}" style="max-height: 50px;">
+                            </td>
                             <td>
                               <div class="btn-group">
                                 <div class="dropdown">

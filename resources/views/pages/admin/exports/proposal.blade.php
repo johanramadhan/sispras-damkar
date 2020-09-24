@@ -16,6 +16,7 @@
             <th style="text-align: center; font-weight: bold; border: 1px solid black">User Pengaju</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Kategori</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Nama Barang</th>
+            <th style="text-align: center; font-weight: bold; border: 1px solid black">Merek</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Kebutuhan Maksimum</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Jumlah Yang Diajukan</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Satuan</th>
@@ -35,6 +36,7 @@
           <td style="border: 1px solid black">{{ $proposal->user->name }}</td>
           <td style="border: 1px solid black">{{ $proposal->category->name }}</td>
           <td style="border: 1px solid black">{{ $proposal->name }}</td>
+          <td style="border: 1px solid black">{{ $proposal->brand }}</td>
           <td style="text-align: center; border: 1px solid black">{{ $proposal->max_requirement }}</td>
           <td style="text-align: center; border: 1px solid black">{{ $proposal->qty }}</td>
           <td style="text-align: center; border: 1px solid black">{{ $proposal->satuan }}</td>
@@ -43,13 +45,16 @@
           <td style="border: 1px solid black">{{ $proposal->benefit }}</td>
           <td style="border: 1px solid black">{{ $proposal->proposal_status }}</td>
           <td style="border: 1px solid black; width: 80px">{!! $proposal->description !!}</td>
+          <td style="border: 1px solid black">
+            {{-- <img src="{{Storage::url($proposal->galleries->first()->photos)}}" style="max-height: 50px;"> --}}
+          </td>
         </tr>
     @endforeach
     </tbody>
     <tfoot>
         <tr>
             <td style="text-align: center; font-weight: bold; border: 1px solid black"></td>
-            <td style="text-align: center; font-weight: bold; border: 1px solid black" colspan="8">TOTAL</td>
+            <td style="text-align: center; font-weight: bold; border: 1px solid black" colspan="9">TOTAL</td>
             <td style="text-align: right; font-weight: bold; border: 1px solid black">Rp{{ number_format($pengajuan) }}</td>
             <td style="text-align: center; font-weight: bold; border: 1px solid black" colspan="4"></td>
         </tr>

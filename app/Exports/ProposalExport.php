@@ -3,13 +3,16 @@
 namespace App\Exports;
 
 use App\Proposal;
+
 use App\ProposalGallery;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Concerns\FromCollection;
+
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithDrawings;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
 class ProposalExport implements FromView, ShouldAutoSize
 {
@@ -27,6 +30,8 @@ class ProposalExport implements FromView, ShouldAutoSize
             'pengajuan' => $pengajuan,
         ]);
     }
+
+    
 
     
 }
