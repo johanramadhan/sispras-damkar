@@ -76,13 +76,17 @@
                                 <thead>
                                   <tr>
                                     <th>ID</th>
+                                    <th>Kode Pengajuan</th>
                                     <th>Nama Barang</th>
+                                    <th>Merek</th>
                                     <th class="text-center">Kategori</th>
+                                    <th class="text-center">Kebutuhan Maksimum</th>
                                     <th class="text-center">Jumlah</th>
                                     <th class="text-center">Satuan</th>
                                     <th>Harga Satuan</th>
                                     <th>Total Harga</th>
                                     <th class="text-center">Fungsi</th>
+                                    <th class="text-center">Gambar</th>
                                     <th class="text-center">Aksi</th>
                                   </tr>
                                 </thead>
@@ -90,13 +94,19 @@
                                   @foreach ($proposals as $proposal)
                                     <tr>
                                       <td>{{ $loop->iteration }}</td>
+                                      <td>{{ $proposal->code }}</td>
                                       <td>{{ $proposal->name }}</td>
+                                      <td>{{ $proposal->brand }}</td>
                                       <td>{{ $proposal->category->name }}</td>
+                                      <td class="text-center">{{ $proposal->max_requirement }}</td>
                                       <td class="text-center">{{ $proposal->qty }}</td>
                                       <td class="text-center">{{ $proposal->satuan }}</td>
                                       <td>Rp{{ number_format($proposal->price) }}</td>
                                       <td>Rp{{ number_format($proposal->total_price) }}</td>
                                       <td>{{ $proposal->benefit }}</td>
+                                      <td>
+                                        <img src="{{Storage::url($proposal->galleries->first()->photos)}}" style="max-height: 50px;">
+                                      </td>
                                       <td>
                                         <div class="btn-group">
                                           <div class="dropdown">
@@ -125,6 +135,14 @@
                                     </tr>
                                   @endforeach
                                 </tbody>
+                                 <tfoot>
+                                    <tr>
+                                      <td></td>
+                                      <td colspan="8" class="font-weight-bold">Total</td>
+                                      <td class="text-right font-weight-bold">Rp{{ number_format($proposaltotal) }}</td>
+                                      <td colspan="3"></td>
+                                    </tr>
+                                  </tfoot>
                               </table>
                             </div>
                           </div>

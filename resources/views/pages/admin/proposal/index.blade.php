@@ -41,7 +41,9 @@
                           <th>Nama Barang</th>
                           <th class="text-center">User Pengaju</th>
                           <th class="text-center">Kategori</th>
+                          <th class="text-center">Kebutuhan Maksimum</th>
                           <th>Jumlah</th>
+                          <th>Satuan</th>
                           <th class="text-center">Harga Satuan</th>
                           <th>Total Harga</th>
                           <th class="text-center">Fungsi</th>
@@ -57,7 +59,9 @@
                             <td>{{ $proposal->name }}</td>
                             <td>{{ $proposal->user->name }}</td>
                             <td>{{ $proposal->category->name }}</td>
+                            <td class="text-center">{{ $proposal->max_requirement }}</td>
                             <td class="text-center">{{ $proposal->qty }}</td>
+                            <td>{{ $proposal->satuan }}</td>
                             <td>Rp{{ number_format($proposal->price) }}</td>
                             <td>Rp{{ number_format($proposal->total_price) }}</td>
                             <td>{{ $proposal->benefit }}</td>
@@ -94,7 +98,7 @@
                       <tfoot>
                         <tr>
                           <td></td>
-                          <td colspan="6" class="font-weight-bold">Total</td>
+                          <td colspan="8" class="font-weight-bold">Total</td>
                           <td class="text-right font-weight-bold">Rp{{ number_format($pengajuan ?? '') }}</td>
                           <td colspan="3"></td>
                         </tr>

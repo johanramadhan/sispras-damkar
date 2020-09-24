@@ -1,13 +1,13 @@
 <table style="border: 1px solid black">
     <thead style="border: 1px solid black">
         <tr>
-            <th colspan="13" style="text-align: center; font-size: 18px"><strong>PENGAJUAN PERBIDANG</strong></th>
+            <th colspan="15" style="text-align: center; font-size: 18px"><strong>PENGAJUAN PERBIDANG</strong></th>
         </tr>
         <tr>
-            <th colspan="13" style="text-align: center; font-size: 18px"><strong>DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU</strong></th>
+            <th colspan="15" style="text-align: center; font-size: 18px"><strong>DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU</strong></th>
         </tr>
         <tr>
-            <th colspan="13" style="text-align: center; font-size: 18px"><strong>TAHUN ANGGARAN 2021</strong></th>
+            <th colspan="15" style="text-align: center; font-size: 18px"><strong>TAHUN ANGGARAN 2021</strong></th>
         </tr>
         <tr></tr>
         <tr>
@@ -46,7 +46,7 @@
           <td style="border: 1px solid black">{{ $proposal->proposal_status }}</td>
           <td style="border: 1px solid black; width: 80px">{!! $proposal->description !!}</td>
           <td style="border: 1px solid black">
-            {{-- <img src="{{Storage::url($proposal->galleries->first()->photos)}}" style="max-height: 50px;"> --}}
+            <img src="{{Storage::url($proposal->galleries->first()->photos)}}" style="max-height: 50px;">
           </td>
         </tr>
     @endforeach

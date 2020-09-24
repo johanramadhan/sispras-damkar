@@ -20,6 +20,13 @@ class DashboardProposalController extends Controller
       $proposals = Proposal::with(['galleries','category'])
                     ->where('users_id', Auth::user()->id)
                     ->latest()->get();
+          
+      $proposal = Proposal::with(['user','galleries'])
+                            ->where('users_id', Auth::user()->id);
+      
+       $proposaltotal = $proposal->get()->reduce(function ($carry, $item){
+            return $carry + $item->total_price;
+        });
 
         if(request()->ajax())
         {
@@ -69,7 +76,8 @@ class DashboardProposalController extends Controller
         }
 
         return view('pages.dashboard-proposals',[
-          'proposals' => $proposals
+          'proposals' => $proposals,
+          'proposaltotal' => $proposaltotal,
         ]);
     }
 
