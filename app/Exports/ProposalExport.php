@@ -3,6 +3,8 @@
 namespace App\Exports;
 
 use App\Proposal;
+use App\ProposalGallery;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -17,7 +19,7 @@ class ProposalExport implements FromView, ShouldAutoSize
     
     public function view(): View
     {
-        $proposals = Proposal::with(['user', 'category'])->get();
+        $proposals = Proposal::with(['user', 'category', 'galleries'])->get();
         $pengajuan = Proposal::sum('total_price');
 
         return view('pages.admin.exports.proposal', [
