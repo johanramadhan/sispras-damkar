@@ -86,12 +86,14 @@ class ProposalController extends Controller
 
     public function create()
     {
+      $proposals = Proposal::with(['galleries','user','category']);
       $users = User::all();  
       $categories = Category::all();  
       $code = 'SISPRAS-' . mt_rand(0000,999999);
       
       return view('pages.admin.proposal.create',[
         'users' => $users,
+        'proposals' => $proposals,
         'categories' => $categories,
         'code' => $code
       ]);
@@ -102,8 +104,14 @@ class ProposalController extends Controller
         $data = $request->all();
 
         $data['slug'] = Str::slug($request->name);
+        $proposal = Proposal::create($data);
 
-        Proposal::create($data);
+        $gallery = [
+            'proposals_id' => $proposal->id,
+            'photos' => $request->file('photos')->store('assets/proposal','public')
+        ];
+
+        ProposalGallery::create($gallery);
 
         return redirect()->route('proposal.index');
     }

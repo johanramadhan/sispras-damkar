@@ -17,7 +17,7 @@ class DashboardProposalController extends Controller
 {
     public function index()
     {
-      $proposals = Proposal::with(['galleries','category'])
+      $proposals = Proposal::with(['galleries','category','user'])
                     ->where('users_id', Auth::user()->id)
                     ->latest()->get();
           
@@ -139,7 +139,7 @@ class DashboardProposalController extends Controller
     {
         $data = $request->all();
 
-        $data['photos'] = $request->file('photos')->store('assets/product','public');
+        $data['photos'] = $request->file('photos')->store('assets/proposal','public');
 
         ProposalGallery::create($data);
 

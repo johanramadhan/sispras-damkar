@@ -151,7 +151,16 @@
                           <label>Deskripsi Barang</label>
                           <textarea name="description" id="editor" ></textarea>
                         </div>
-                      </div>                      
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Thumbnails</label>
+                          <input type="file" name="photos" class="form-control"/>
+                          <p class="text-muted">
+                            Masukkan gambar barang yang diajukan
+                          </p>
+                        </div>
+                      </div>                     
                     </div>
                     <div class="row">
                       <div class="col text-right">

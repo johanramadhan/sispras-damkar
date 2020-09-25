@@ -105,7 +105,7 @@
                                       <td>Rp{{ number_format($proposal->total_price) }}</td>
                                       <td>{{ $proposal->benefit }}</td>
                                       <td>
-                                        <img src="{{Storage::url($proposal->galleries->first()->photos)}}" style="max-height: 50px;">
+                                        <img src="{{Storage::url($proposal->galleries->first()->photos ?? 'tidak ada foto')}}" style="max-height: 50px;">
                                       </td>
                                       <td>
                                         <div class="btn-group">
