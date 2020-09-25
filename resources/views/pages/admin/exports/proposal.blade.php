@@ -1,13 +1,13 @@
 <table style="border: 1px solid black">
     <thead style="border: 1px solid black">
         <tr>
-            <th colspan="15" style="text-align: center; font-size: 18px"><strong>PENGAJUAN PERBIDANG</strong></th>
+            <th colspan="14" style="text-align: center; font-size: 18px"><strong>PENGAJUAN PERBIDANG</strong></th>
         </tr>
         <tr>
-            <th colspan="15" style="text-align: center; font-size: 18px"><strong>DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU</strong></th>
+            <th colspan="14" style="text-align: center; font-size: 18px"><strong>DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU</strong></th>
         </tr>
         <tr>
-            <th colspan="15" style="text-align: center; font-size: 18px"><strong>TAHUN ANGGARAN 2021</strong></th>
+            <th colspan="14" style="text-align: center; font-size: 18px"><strong>TAHUN ANGGARAN 2021</strong></th>
         </tr>
         <tr></tr>
         <tr>
@@ -25,7 +25,7 @@
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Fungsi</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Status Pengajuan</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Spesifikasi</th>
-            <th style="text-align: center; font-weight: bold; border: 1px solid black">Gambar</th>
+            {{-- <th style="text-align: center; font-weight: bold; border: 1px solid black">Gambar</th> --}}
         </tr>
     </thead>
     <tbody style="border: 1px solid black">
@@ -45,9 +45,9 @@
           <td style="border: 1px solid black">{{ $proposal->benefit }}</td>
           <td style="border: 1px solid black">{{ $proposal->proposal_status }}</td>
           <td style="border: 1px solid black; width: 80px">{!! $proposal->description !!}</td>
-          <td style="border: 1px solid black">
+          {{-- <td style="border: 1px solid black">
             <img src="{{Storage::url($proposal->galleries->first()->photos)}}" style="max-height: 50px;">
-          </td>
+          </td> --}}
         </tr>
     @endforeach
     </tbody>
@@ -56,7 +56,7 @@
             <td style="text-align: center; font-weight: bold; border: 1px solid black"></td>
             <td style="text-align: center; font-weight: bold; border: 1px solid black" colspan="9">TOTAL</td>
             <td style="text-align: right; font-weight: bold; border: 1px solid black">Rp{{ number_format($pengajuan) }}</td>
-            <td style="text-align: center; font-weight: bold; border: 1px solid black" colspan="4"></td>
+            <td style="text-align: center; font-weight: bold; border: 1px solid black" colspan="3"></td>
         </tr>
     </tfoot>
 </table>
