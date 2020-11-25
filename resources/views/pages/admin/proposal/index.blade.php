@@ -83,11 +83,15 @@
                                     <a class="dropdown-item" href="{{ route('dashboard-proposal-details', $proposal->id) }}">
                                       Detail
                                     </a>
-                                    <form action="{{ route('proposal.destroy', $proposal->id) }}" method="POST">
-                                      {{method_field('delete')}} {{  csrf_field()}}
-                                      <button type="submit" class="dropdown-item text-danger">
-                                        Hapus
-                                      </button>
+                                    <button type="submit" id="delete" href="{{ route('proposal.destroy', $proposal->id) }}" 
+                                      class="dropdown-item text-danger">
+                                      Hapus
+                                    </button>
+                                    <form action="" method="POST" id="deleteForm">
+                                      @csrf
+                                      @method("DELETE")
+                                      <input type="submit" value="Hapus" style="display: none">
+                                      
                                     </form>
                                   </div>
                                 </div>
@@ -115,6 +119,9 @@
 @endsection
 
 @push('addon-script')
+<!-- Sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+@include('includes.alerts')
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
  <script>
     $(function () {
@@ -154,4 +161,49 @@
       ]
     })
   </script> --}}
+
+  <script>
+    $('button#delete').on('click', function(e){
+      e.preventDefault();
+      var href = $(this).attr('href');
+    
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "Data yang dihapus tidak bisa dikembalikan lagi!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Hapus Saja!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('deleteForm').action = href;
+          document.getElementById('deleteForm').submit();
+          
+          swalWithBootstrapButtons.fire(
+            'Terhapus!',
+            'Data kelas berhasil dihapus.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Data anda tidak jadi dihapus',
+            'error'
+          )
+        }
+      })
+    })
+  </script>
 @endpush

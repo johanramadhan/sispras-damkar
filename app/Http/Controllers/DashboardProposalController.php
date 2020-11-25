@@ -108,7 +108,8 @@ class DashboardProposalController extends Controller
 
         ProposalGallery::create($gallery);
 
-        return redirect()->route('dashboard-proposal');
+        return redirect()->route('dashboard-proposal')
+            ->with('success', 'Data pengajuan berhasil ditambahkan');
     }
 
     public function detail(Request $request, $id)
@@ -164,7 +165,8 @@ class DashboardProposalController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('dashboard-proposal');
+        return redirect()->route('dashboard-proposal')
+            ->with('update', 'Data pengajuan berhasil diedit');
     }
 
     public function delete($id)

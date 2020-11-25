@@ -113,7 +113,8 @@ class ProposalController extends Controller
 
         ProposalGallery::create($gallery);
 
-        return redirect()->route('proposal.index');
+        return redirect()->route('proposal.index')
+            ->with('success', 'Data pengajuan berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -140,7 +141,8 @@ class ProposalController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('proposal.index');
+        return redirect()->route('proposal.index')
+            ->with('update', 'Data pengajuan berhasil diedit');
     }
 
     public function destroy($id)
