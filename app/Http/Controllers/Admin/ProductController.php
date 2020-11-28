@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Product;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Category;
+use App\ProductGallery;
 use Illuminate\Support\Str;
 
 Use App\Http\Requests\Admin\ProductRequest;
-use App\User;
-use App\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
@@ -23,9 +24,12 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = Product::with(['user', 'category'])->get();
+        $totalaset = Product::sum('total_price');
         if(request()->ajax())
         {
             $query = Product::with(['user', 'category']);
+           
 
             return Datatables::of($query)
               ->addColumn('price', function($item) {
@@ -66,7 +70,9 @@ class ProductController extends Controller
               ->make();
         }
 
-        return view('pages.admin.product.index');
+        return view('pages.admin.product.index',[
+          'products' => $products,
+        ]);
     }
 
     /**
@@ -97,9 +103,17 @@ class ProductController extends Controller
 
         $data['slug'] = Str::slug($request->name);
 
-        Product::create($data);
+        $product = Product::create($data);
 
-        return redirect()->route('product.index');
+        $gallery = [
+            'products_id' => $product->id,
+            'photos' => $request->file('photos')->store('assets/product','public')
+        ];
+
+        ProductGallery::create($gallery);
+
+        return redirect()->route('product.index')
+          ->with('success', 'Data aset berhasil ditambahkan');
     }
 
     /**
@@ -121,7 +135,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $item = Product::findOrFail($id);
+        $item = Product::with(['galleries','user','category'])->findOrFail($id);
         $users = User::all();  
         $categories = Category::all(); 
 
@@ -149,7 +163,8 @@ class ProductController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')
+          ->with('update', 'Data aset berhasil diedit');
     }
 
     /**

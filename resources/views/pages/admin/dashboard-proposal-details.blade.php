@@ -88,10 +88,10 @@
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="product-title">
-                            Date of Transaction
+                            Tanggal Pengajuan
                           </div>
                           <div class="product-subtitle">
-                            {{ $transaction->created_at }}
+                            {{ $transaction->created_at->format('d M Y') }} / {{ $transaction->created_at->diffForHumans() }}
                           </div>
                         </div>
                         <div class="col-12 col-md-6">

@@ -23,11 +23,13 @@ class ProductGalleryController extends Controller
      */
     public function index()
     {
+        $productgalleries = ProductGallery::all();
         if(request()->ajax())
         {
-            $query = ProductGallery::with(['product']);
 
-            return Datatables::of($query)
+          $query = ProductGallery::with(['product']);
+
+          return Datatables::of($query)
               ->addColumn('action', function($item) {
                 return '
                   <div class="btn-group">
@@ -56,7 +58,9 @@ class ProductGalleryController extends Controller
               ->make();
         }
 
-        return view('pages.admin.product-gallery.index');
+        return view('pages.admin.product-gallery.index',[
+          'productgalleries' => $productgalleries,
+        ]);
     }
 
     /**
@@ -87,7 +91,7 @@ class ProductGalleryController extends Controller
 
         ProductGallery::create($data);
 
-        return redirect()->route('product-gallery.index');
+        return redirect()->route('product-gallery.index')->with('success', 'Foto berhasil ditambahkan');
     }
 
     /**

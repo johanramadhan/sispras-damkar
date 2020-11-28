@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@push('addon-style')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
+@endpush
+
 @section('title')
     Product Gallery
 @endsection
@@ -35,7 +39,41 @@
                         <th>Aksi</th>
                       </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                      @foreach ($productgalleries as $item)
+                          <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->product->name }}</td>
+                            <td>
+                              <img src="{{Storage::url($item->photos)}}" style="max-height: 50px;">
+                            </td>
+                            <td>
+                              <div class="btn-group">
+                                <div class="dropdown">
+                                  <button class="btn btn-primary dropdown-toggle mr-1 mb-1"        
+                                    type="button"
+                                    data-toggle="dropdown">
+                                    Aksi
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    
+                                    <button type="submit" id="delete" href="{{ route('product-gallery.destroy', $item->id) }}" 
+                                      class="dropdown-item text-danger">
+                                      Hapus
+                                    </button>
+                                    <form action="" method="POST" id="deleteForm">
+                                      @csrf
+                                      @method("DELETE")
+                                      <input type="submit" value="Hapus" style="display: none">
+                                      
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                      @endforeach
+                    </tbody>
                   </table>
                 </div>
                 </div>
@@ -48,7 +86,19 @@
 @endsection
 
 @push('addon-script')
+  <!-- Sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  @include('includes.alerts')
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
   <script>
+      $(function () {
+        $('#crudTable').DataTable({
+          
+          
+        });
+      });
+    </script>
+  {{-- <script>
     var datatable = $('#crudTable').DataTable({
       processing: true,
       serverside: true,
@@ -69,6 +119,51 @@
         },
 
       ]
+    })
+  </script> --}}
+
+  <script>
+    $('button#delete').on('click', function(e){
+      e.preventDefault();
+      var href = $(this).attr('href');
+    
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "Data yang dihapus tidak bisa dikembalikan lagi!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Hapus Saja!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('deleteForm').action = href;
+          document.getElementById('deleteForm').submit();
+          
+          swalWithBootstrapButtons.fire(
+            'Terhapus!',
+            'Data kelas berhasil dihapus.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Data anda tidak jadi dihapus',
+            'error'
+          )
+        }
+      })
     })
   </script>
 @endpush
