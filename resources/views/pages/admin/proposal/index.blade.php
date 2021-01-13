@@ -32,6 +32,12 @@
                   <a href="{{ route('proposalexport') }}" class="btn btn-success mb-3">
                   Export Excel
                   </a>
+                  <a href="{{ route('proposalexportPdf') }}" class="btn btn-danger mb-3">
+                  Export PDF
+                  </a>
+                  <a href="{{ route('proposalexportPdftable') }}" class="btn btn-warning mb-3">
+                  Export PDF Table
+                  </a>
                   <div class="table-responsive">
                     <table class="table table-hover scroll-horizontal-vertical w-100" id="dataTable">
                       <thead>

@@ -25,7 +25,7 @@
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Fungsi</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Status Pengajuan</th>
             <th style="text-align: center; font-weight: bold; border: 1px solid black">Spesifikasi</th>
-            {{-- <th style="text-align: center; font-weight: bold; border: 1px solid black">Gambar</th> --}}
+            <th style="text-align: center; font-weight: bold; border: 1px solid black">Gambar</th>
         </tr>
     </thead>
     <tbody style="border: 1px solid black">
@@ -45,9 +45,9 @@
           <td style="border: 1px solid black">{{ $proposal->benefit }}</td>
           <td style="border: 1px solid black">{{ $proposal->proposal_status }}</td>
           <td style="border: 1px solid black; width: 80px">{!! $proposal->description !!}</td>
-          {{-- <td style="border: 1px solid black">
-            <img src="{{Storage::url($proposal->galleries->first()->photos)}}" style="max-height: 50px;">
-          </td> --}}
+          <td style="border: 1px solid black">
+            <img src="{{ public_path("storage/".$proposal->galleries->first()->photos) }}" style="width: 10px;">
+          </td>
         </tr>
     @endforeach
     </tbody>

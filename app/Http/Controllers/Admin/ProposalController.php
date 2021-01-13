@@ -6,17 +6,20 @@ use App\User;
 use App\Category;
 use App\Proposal;
 use App\ProposalGallery;
-use App\Http\Controllers\Controller;
-use App\Exports\ProposalExport;
+use PDF;
+
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Yajra\DataTables\Facades\DataTables;
+use App\Exports\ProposalExport;
+use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
+use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Admin\ProposalRequest;
 use App\Http\Requests\Admin\ProposalGalleryRequest;
+
 
 class ProposalController extends Controller
 {
@@ -81,6 +84,34 @@ class ProposalController extends Controller
     {
       return Excel::download(new ProposalExport, 'pengajuan damkar_2021.xlsx');
       // return (new ProposalExport)->download('pengajuan damkar_2021.xlsx');
+      
+    }
+
+    public function exportPdf()
+    {
+      $proposals = Proposal::all();
+      $pengajuans = Proposal::sum('total_price');
+      $pdf = PDF::loadView('pages.admin.exports.exportpdf',[
+        'proposals' => $proposals,
+        'pengajuans' => $pengajuans
+        
+      ])->setPaper('f4', 'portrait')->setWarnings(false);
+
+      // ->setPaper('f4', 'portrait')
+
+      return $pdf->stream();
+      
+    }
+
+    public function exportPdftable()
+    {
+      $proposals = Proposal::all();
+      $pdf = PDF::loadView('pages.admin.exports.exportpdftable', ['proposals' => $proposals])->setPaper('f4', 'landscape')
+      ->setWarnings(false);
+
+      // ->setPaper('f4', 'portrait')
+
+      return $pdf->stream();
       
     }
 

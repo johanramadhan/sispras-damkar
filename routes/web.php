@@ -91,6 +91,8 @@ Route::prefix('admin')
     Route::resource('proposal-gallery', 'ProposalGalleryController');
 
     Route::get('/admin/proposal/proposalexport', 'ProposalController@export')->name('proposalexport');
+    Route::get('/admin/proposal/proposalexportpdf', 'ProposalController@exportPdf')->name('proposalexportPdf');
+    Route::get('/admin/proposal/proposalexportpdftable', 'ProposalController@exportPdftable')->name('proposalexportPdftable');
 
     Route::get('proposal/detail/{id}', 'ProposalDetailController@detail')->name('dashboard-proposal-details');
     Route::post('proposal/detail/{id}', 'ProposalDetailController@update')->name('dashboard-proposal-update');
