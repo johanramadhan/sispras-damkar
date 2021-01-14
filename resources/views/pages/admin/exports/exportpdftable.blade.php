@@ -11,6 +11,7 @@
   .table {
     width: 100%;
     font-size: 12px;
+    border: 5px;
   }
 
   .page-break {
@@ -25,7 +26,7 @@
     <img src="{{ public_path('images/logo-sidebar.png') }}" width="200px" >
   </div>
   <div class="position-relative">
-    <h5 class="text-center cover">PENGAJUAN BARANG PERBIDANG <br> DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU TAHUN ANGGARAN 2021</h5>
+    <h5 class="text-center cover">PENGAJUAN BARANG PERBIDANG <br> DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h5>
   </div>
 
   <div class="page-break"></div>
@@ -47,31 +48,31 @@
         <th class="text-center">Gambar</th>
       </tr>
     </thead>
-    @foreach ($proposals as $proposal)
     <tbody>
-      <tr>
-        <td class="text-center">{{ $loop->iteration }}</td>
-        <td>{{ $proposal->user->name }}</td>
-        <td>{{ $proposal->name }}</td>
-        <td >{{ $proposal->category->name }}</td>
-        <td class="text-center">{{ $proposal->max_requirement }}</td>
-        <td class="text-center">{{ $proposal->qty }}</td>
-        <td class="text-center">{{ $proposal->satuan }}</td>
-        <td class="text-center">Rp{{ number_format($proposal->price) }}</td>
-        <td class="text-center">Rp{{ number_format($proposal->total_price) }}</td>
-        <td>{{ $proposal->benefit }}</td>
-        <td>{!! Str::limit($proposal->description, 500) !!}</td>
-        <td>
-          <img src="{{ public_path("storage/".$proposal->galleries->first()->photos) }}" style="width: 100px; margin-top:10px;">
-        </td>
-      </tr>
+      @foreach ($proposals as $proposal)
+        <tr>
+          <td class="text-center">{{ $loop->iteration }}</td>
+          <td>{{ $proposal->user->name }}</td>
+          <td>{{ $proposal->name }}</td>
+          <td >{{ $proposal->category->name }}</td>
+          <td class="text-center">{{ $proposal->max_requirement }}</td>
+          <td class="text-center">{{ $proposal->qty }}</td>
+          <td class="text-center">{{ $proposal->satuan }}</td>
+          <td class="text-center">Rp{{ number_format($proposal->price) }}</td>
+          <td class="text-center">Rp{{ number_format($proposal->total_price) }}</td>
+          <td>{{ $proposal->benefit }}</td>
+          <td>{!! Str::limit($proposal->description, 500) !!}</td>
+          <td>
+            <img src="{{ public_path("storage/".$proposal->galleries->first()->photos) }}" style="width: 100px; margin-top:10px;">
+          </td>
+        </tr>
+      @endforeach
     </tbody>
-    @endforeach
 
     <tfoot>
       <tr>
         <td colspan="8"><b>Total</b></td>
-        <td><b>Rp{{$pengajuans ?? '' }}</b></td>
+        <td><b>Rp{{ number_format($total ?? '') }}</b></td>
         <td colspan="3"></td>
       </tr>
     </tfoot>

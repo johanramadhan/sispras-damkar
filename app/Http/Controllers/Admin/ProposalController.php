@@ -91,11 +91,12 @@ class ProposalController extends Controller
     {
       $proposals = Proposal::all();
       $pengajuans = Proposal::sum('total_price');
+      $customPaper = array(0,0,615,936);
       $pdf = PDF::loadView('pages.admin.exports.exportpdf',[
         'proposals' => $proposals,
         'pengajuans' => $pengajuans
         
-      ])->setPaper('f4', 'portrait')->setWarnings(false);
+      ])->setPaper($customPaper, 'portrait')->setWarnings(false);
 
       // ->setPaper('f4', 'portrait')
 
@@ -106,7 +107,13 @@ class ProposalController extends Controller
     public function exportPdftable()
     {
       $proposals = Proposal::all();
-      $pdf = PDF::loadView('pages.admin.exports.exportpdftable', ['proposals' => $proposals])->setPaper('f4', 'landscape')
+      $total = Proposal::sum('total_price');
+      $customPaper = array(0,0,615,940);
+      $pdf = PDF::loadView('pages.admin.exports.exportpdftable',[
+        'proposals' => $proposals, 
+        'total' => $total
+      
+      ])->setPaper($customPaper, 'landscape')
       ->setWarnings(false);
 
       // ->setPaper('f4', 'portrait')
