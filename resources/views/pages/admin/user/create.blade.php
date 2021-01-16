@@ -42,6 +42,24 @@
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
+                          <label>Nama Bidang/Subbag</label>
+                          <input type="text" name="address_one" class="form-control" required>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Nama Kepala Bidang/Subbag</label>
+                          <input type="text" name="address_two" class="form-control" required>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>NIP</label>
+                          <input type="text" name="sispras_name" class="form-control" required>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
                           <label>Email User</label>
                           <input type="email" name="email" class="form-control" required>
                         </div>

@@ -29,9 +29,9 @@
                   <a href="{{ route('proposal.create') }}" class="btn btn-primary mb-3">
                   + Pengajuan Baru
                   </a>
-                  <a href="{{ route('proposalexport') }}" class="btn btn-success mb-3">
+                  {{-- <a href="{{ route('proposalexport') }}" class="btn btn-success mb-3">
                   Export Excel
-                  </a>
+                  </a> --}}
                   <a href="{{ route('proposalexportPdf') }}" class="btn btn-danger mb-3">
                   Export PDF
                   </a>

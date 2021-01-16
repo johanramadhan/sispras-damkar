@@ -71,6 +71,12 @@
                             <a href="{{ route('dashboard-proposal-create') }}" class="btn btn-primary mb-3">
                             + Pengajuan Baru
                             </a>
+                            {{-- <a href="{{ route('proposalexportPdf') }}" class="btn btn-danger mb-3">
+                            Export PDF
+                            </a> --}}
+                            <a href="{{ route('pdfTable') }}" class="btn btn-danger mb-3">
+                            Print PDF
+                            </a>
                             <div class="table-responsive">
                               <table class="table table-hover scroll-horizontal-vertical w-100" id="dataTable">
                                 <thead>

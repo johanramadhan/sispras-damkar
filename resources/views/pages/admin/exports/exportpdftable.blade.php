@@ -26,7 +26,7 @@
     <img src="{{ public_path('images/logo-sidebar.png') }}" width="200px" >
   </div>
   <div class="position-relative">
-    <h5 class="text-center cover">PENGAJUAN BARANG PERBIDANG <br> DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h5>
+    <h5 class="text-center cover">RENCANA KEBUTUHAN BARANG MILIK DAERAH (RKBMD) OLEH BIDANG PADA <br> DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h5>
   </div>
 
   <div class="page-break"></div>

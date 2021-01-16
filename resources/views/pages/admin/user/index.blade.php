@@ -30,7 +30,9 @@
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>Nama</th>
+                        <th>Nama Bidang/Subbag</th>
+                        <th>Nama Kepala Bidang/Subbag</th>
+                        <th>NIP</th>
                         <th>Foto</th>
                         <th>Email</th>
                         <th>Roles</th>
@@ -60,7 +62,9 @@
       },
       columns: [
         { data: 'id', name: 'id' },
-        { data: 'name', name: 'name' },
+        { data: 'address_one', name: 'address_one' },
+        { data: 'address_two', name: 'address_two' },
+        { data: 'sispras_name', name: 'sispras_name' },
         { data: 'photo', name: 'photo' },
         { data: 'email', name: 'email' },
         { data: 'roles', name: 'roles' },

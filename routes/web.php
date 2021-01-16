@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/dashboard/products/gallery/upload', 'DashboardProductController@uploadGallery')->name('dashboard-product-gallery-upload');
     Route::get('/dashboard/products/gallery/delete/{id}', 'DashboardProductController@deleteGallery')->name('dashboard-product-gallery-delete');
 
+    // Dashboard Proposal
     Route::get('/dashboard/proposals', 'DashboardProposalController@index')->name('dashboard-proposal');
     Route::get('/dashboard/proposals/create', 'DashboardProposalController@create')->name('dashboard-proposal-create');
     Route::post('/dashboard/proposal', 'DashboardProposalController@store')->name('dashboard-proposal-sispras');
@@ -62,7 +63,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('/dashboard/proposal/{id}', 'DashboardProposalController@delete')->name('dashboard-proposal-delete');
     Route::get('/dashboard/proposal/detail/{id}', 'DashboardProposalController@detail')->name('dashboard-proposal-detail');
 
+    // Dashboard proposal export
+    Route::get('/dashboard/proposal/pdfTable', 'DashboardProposalController@pdfTable')->name('pdfTable');
 
+    // dashboard proposal gallery
     Route::post('/dashboard/proposals/gallery/upload', 'DashboardProposalController@uploadGallery')->name('dashboard-proposal-gallery-upload');
     Route::get('/dashboard/proposals/gallery/delete/{id}', 'DashboardProposalController@deleteGallery')->name('dashboard-proposal-gallery-delete');  
 

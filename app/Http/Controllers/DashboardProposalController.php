@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Category;
-use App\Http\Requests\Admin\ProposalRequest;
 use App\Proposal;
 use App\ProposalGallery;
-use App\User;
+use PDF;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Yajra\DataTables\Facades\DataTables;
 
-use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Admin\ProposalRequest;
 
 class DashboardProposalController extends Controller
 {
@@ -79,6 +80,34 @@ class DashboardProposalController extends Controller
           'proposals' => $proposals,
           'proposaltotal' => $proposaltotal,
         ]);
+    }
+
+    public function pdfTable()
+    {
+      $proposals = Proposal::all()->where('users_id', Auth::user()->id)->sortBy('categories_id');
+
+      $judul = Proposal::with(['user','galleries'])
+                          ->where('users_id', Auth::user()->id)->first();
+
+      $proposal = Proposal::with(['user','galleries'])
+                          ->where('users_id', Auth::user()->id);
+      $total = $proposal->get()->reduce(function ($carry, $item){
+            return $carry + $item->total_price;
+      });
+
+      $customPaper = array(0,0,936,615);
+      $pdf = PDF::loadView('pages.exports.pdfTable',[
+        'proposals' => $proposals,
+        'proposal' => $proposal,
+        'judul' => $judul,
+        'total' => $total
+        
+      ])->setPaper($customPaper)->setWarnings(false);
+
+      // ->setPaper('f4', 'portrait')
+
+      return $pdf->stream();
+      
     }
 
     public function create()
