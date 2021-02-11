@@ -66,9 +66,9 @@
       </tr>
     </thead>
 
-    <tbody style="line-height: 12px;">
+    <tbody>
       @foreach ($proposals as $proposal)
-        <tr>
+        <tr style="line-height: 12px;">
           <td class="text-center">{{ $loop->iteration }}</td>
           <td >{{ $proposal->category->name }}</td>
           <td>{{ $proposal->name }}</td>
@@ -85,19 +85,17 @@
           </td>
         </tr>
       @endforeach
-    </tbody>
-
-    <tfoot>
+    
       <tr>
         <td colspan="8"><b>Total</b></td>
         <td><b>Rp{{ number_format($total) }}</b></td>
         <td colspan="3"></td>
       </tr>
-    </tfoot>
+    </tbody>
 
   </table>
 
-  <table class="table table-borderless table-sm" style="line-height: 14px;">
+  <table class="table" style="border: 1px solid black; font-size: 12px;">
     <tr>
       <td class="w-75"></td>
       <td colspan="2" class="w-25">

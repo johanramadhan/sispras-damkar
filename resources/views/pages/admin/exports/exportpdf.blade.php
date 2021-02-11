@@ -31,11 +31,13 @@
   <div class="page-break"></div>
 
   <table class="table table-bordered table-sm">
-    <tr>
-      <th class="text-center">No</th>
-      <th class="text-center">Gambar</th>
-      <th class="text-center">Uraian</th>
-    </tr>
+    <thead>
+      <tr>
+        <th class="text-center">No</th>
+        <th class="text-center">Gambar</th>
+        <th class="text-center">Uraian</th>
+      </tr>
+    </thead>
     @foreach ($proposals  as $proposal)
         <tr>
           <td class="text-center col-0 mt-2">{{ $loop->iteration }}</td>

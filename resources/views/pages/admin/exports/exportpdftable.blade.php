@@ -5,13 +5,28 @@
 </head>
 
 <style>
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  th {
+    padding: 3px;
+    background-color: #2c2e92;
+    color: white;
+  }
+
+  td {
+    padding: 5px;
+    vertical-align: top;
+  }
   .cover {
-    margin-top: 100px;
+    margin-top: 70px;
+    font-size: 18px;
   }
   .table {
     width: 100%;
     font-size: 12px;
-    border: 5px;
+    
   }
 
   .page-break {
@@ -26,13 +41,15 @@
     <img src="{{ public_path('images/logo-sidebar.png') }}" width="200px" >
   </div>
   <div class="position-relative">
-    <h5 class="text-center cover">RENCANA KEBUTUHAN BARANG MILIK DAERAH (RKBMD) OLEH BIDANG PADA <br> DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h5>
+    <h5 class="text-center cover">RENCANA KEBUTUHAN BARANG MILIK DAERAH (RKBMD) OLEH BIDANG DAN SUB BAGIAN PADA <br> DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h5>
   </div>
 
   <div class="page-break"></div>
 
-  <table class="table table-bordered table-sm">
-    <thead class="thead-dark bg-primary">
+  <h6 class="text-center" style="font-size: 14px;">RENCANA KEBUTUHAN BARANG MILIK DAERAH (RKBMD) OLEH BIDANG DAN SUB BAGIAN <br> PADA DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h6>
+
+  <table style="border: 1px solid black; font-size: 12px;">
+    <thead>
       <tr>
         <th class="text-center">No</th>
         <th class="text-center">Bidang Pengusul</th>
@@ -48,9 +65,10 @@
         <th class="text-center">Gambar</th>
       </tr>
     </thead>
+
     <tbody>
       @foreach ($proposals as $proposal)
-        <tr>
+        <tr style="line-height: 12px;">
           <td class="text-center">{{ $loop->iteration }}</td>
           <td>{{ $proposal->user->name }}</td>
           <td>{{ $proposal->name }}</td>
@@ -67,15 +85,12 @@
           </td>
         </tr>
       @endforeach
-    </tbody>
-
-    <tfoot>
       <tr>
         <td colspan="8"><b>Total</b></td>
         <td><b>Rp{{ number_format($total ?? '') }}</b></td>
         <td colspan="3"></td>
       </tr>
-    </tfoot>
+    </tbody>    
   </table>
 
   
