@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->Biginteger('price');
             $table->Biginteger('total_price');
             $table->string('satuan');
+            $table->string('brand');
             $table->longText('link')->nullable();
             $table->longText('fungsi')->nullable();
             $table->longText('description');

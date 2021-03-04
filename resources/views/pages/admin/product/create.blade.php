@@ -136,6 +136,7 @@
                          <select name="status" class="form-control" required>
                            <option value="Pembelian">Pembelian</option>
                            <option value="Hibah">Hibah</option>
+                           <option value="Pinjam Pakai">Pinjam Pakai</option>
                            <option value="dll">dll</option>
                          </select>
                         </div>

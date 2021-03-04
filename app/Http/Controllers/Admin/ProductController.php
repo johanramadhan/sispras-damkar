@@ -105,12 +105,7 @@ class ProductController extends Controller
 
         $product = Product::create($data);
 
-        $gallery = [
-            'products_id' => $product->id,
-            'photos' => $request->file('photos')->store('assets/product','public')
-        ];
-
-        ProductGallery::create($gallery);
+        
 
         return redirect()->route('product.index')
           ->with('success', 'Data aset berhasil ditambahkan');

@@ -41,12 +41,12 @@
     <img src="{{ public_path('images/logo-sidebar.png') }}" width="200px" >
   </div>
   <div class="position-relative">
-    <h5 class="text-center cover">RENCANA KEBUTUHAN BARANG MILIK DAERAH (RKBMD) DARI <br> <div style="color: red;">{{ $judul->user->address_one ?? '' }}</div>PADA DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h5>
+    <h5 class="text-center cover">RENCANA KEBUTUHAN BARANG MILIK DAERAH (RKBMD) DARI <br> <div style="color: red;" class="text-uppercase">{{ $judul->user->address_one ?? '' }}</div>PADA DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h5>
   </div>
 
   <div class="page-break"></div>
 
-  <h6 class="text-center" style="font-size: 14px;">RENCANA KEBUTUHAN BARANG MILIK DAERAH (RKBMD) DARI <br> <div style="color: red;">{{ $judul->user->address_one ?? '' }}</div> PADA DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h6>
+  <h6 class="text-center" style="font-size: 14px;">RENCANA KEBUTUHAN BARANG MILIK DAERAH (RKBMD) DARI <br> <div style="color: red;" class="text-uppercase">{{ $judul->user->address_one ?? '' }}</div> PADA DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br> TAHUN ANGGARAN 2021</h6>
 
   <table style="border: 1px solid black; font-size: 12px;">
     <thead>
@@ -100,7 +100,7 @@
       <td class="w-75"></td>
       <td colspan="2" class="w-25">
         <p class="mb-0">Pekanbaru, {{ date("d M Y") }}</p>
-        <b>KEPALA {{ $proposal->user->address_one }} DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br><br><br><br> <u>{{ $proposal->user->address_two }}</u> <br>NIP: {{ $proposal->user->sispras_name }}</b>
+        <b class="text-uppercase">KEPALA {{ $proposal->user->address_one }} DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN KOTA PEKANBARU <br><br><br><br> <u>{{ $proposal->user->address_two }}</u> <br>NIP: {{ $proposal->user->sispras_name }}</b>
       </td>
     </tr>
   </table>
