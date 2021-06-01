@@ -144,7 +144,7 @@
                           <div class="col-md-2">{{ $pengajuan->name }} - {{ $pengajuan->brand }}</div>
                           <div class="col-md-2">{{ $pengajuan->user->name }}</div>
                           <div class="col-md-2">Rp{{ number_format($pengajuan->total_price) }}</div>
-                          <div class="col-md-2">{{ Str::limit($pengajuan->benefit, 30 ?? '') }}</div>
+                          <div class="col-md-2">{{ $pengajuan->benefit }}</div>
                           <div class="col-md-1">{{ $pengajuan->proposal_status }}</div>
                           <div class="col-md-2">{{ date('d-M-Y', strtotime($pengajuan->created_at)) }}</div>
                           {{-- <div class="col-md-1 d-none d-md-block">
@@ -180,8 +180,7 @@
                           </div>
                           <div class="col-md-3">{{ $product->name }}</div>
                           <div class="col-md-3">{{ $product->user->name }}</div>
-                          <div class="col-md-2">{{ str::limit($product->fungsi, 20 ?? '') }}</div>
-                          <div class="col-md-2">Rp{{ number_format($product->price) }}</div>
+                          <div class="col-md-4">{{ $product->fungsi }}</div>
                           <div class="col-md-1 d-none d-md-block">
                             <img
                               src="/images/dashboard-arrow-right.svg"
